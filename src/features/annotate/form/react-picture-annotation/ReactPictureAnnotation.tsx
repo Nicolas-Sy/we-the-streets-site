@@ -242,7 +242,7 @@ export default class ReactPictureAnnotation extends React.Component<IReactPictur
           </div>
           <div className="rp-annotations">
             <div>
-              <H3>
+              <H3 className>
                 <span className="text-4xl">Selected Obstructions</span>
               </H3>
               <div className="annotation-instruction">
@@ -288,7 +288,7 @@ export default class ReactPictureAnnotation extends React.Component<IReactPictur
               </ul>
             </div>
             <div>
-              <H3>
+              <H3 className>
                 {" "}
                 <span className="text-4xl">New Obstructions</span>
               </H3>
@@ -466,7 +466,9 @@ export default class ReactPictureAnnotation extends React.Component<IReactPictur
             {/* <button className="annotationModalBtn" onClick={this.submit}>
               Submit
             </button> */}
-            <SolidButton onClick={this.submit}>Submit</SolidButton>
+            <SolidButton className submit onClick={this.submit}>
+              Submit
+            </SolidButton>
           </div>
         </div>
       </section>
