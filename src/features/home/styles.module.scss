@@ -1,0 +1,25 @@
+.card {
+  width: 300px;
+  //   border: solid black 1px;
+  margin: 1rem;
+  margin-left: -2rem;
+  text-align: justify;
+  h3 {
+    :first-child {
+      background-color: #ef4444;
+      padding: 0.3rem;
+      margin-right: 0.4rem;
+      color: white;
+    }
+    :nth-child(2) {
+      text-decoration: underline;
+    }
+    margin-bottom: 0.5vw;
+  }
+  p {
+    padding: 0.5rem;
+    margin-left: 2.8rem;
+    text-align: left;
+    line-height: 1.2rem;
+  }
+}

@@ -1,0 +1,323 @@
+//Annotation Tool
+.annotationContainer {
+  h1,
+  h2,
+  h3 {
+    // color: red;
+  }
+
+  .annotation-step-text {
+    display: flex;
+    span {
+      border: 1px solid black;
+      padding: 0.5rem 0.8rem;
+      width: 500px !important;
+      background: white;
+      z-index: 2;
+    }
+    &:after {
+      content: " ";
+      z-index: 1;
+      position: absolute;
+      background-color: black;
+      margin-top: 1.8rem;
+      // background-color: red;
+      width: 89.5vw !important;
+      height: 1px;
+      // border: 1px solid black;
+    }
+  }
+  p {
+    font-size: 1rem;
+  }
+}
+.rp-container {
+  display: flex;
+  border: 1px solid black;
+  margin-bottom: 3rem;
+}
+.rp-stage {
+  position: relative;
+  min-width: 1000px;
+  width: 1000px;
+  min-height: 600px;
+  height: 600px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial,
+    sans-serif;
+}
+
+.rp-image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  border: 5px solid black;
+}
+
+.rp-uneditable-lbl {
+  background-color: white !important;
+}
+
+.rp-shapes {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.rp-selected-input {
+  position: absolute;
+}
+
+.rp-delete {
+  width: 20px;
+  height: 20px;
+  fill: white;
+}
+
+.rp-delete-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rp-default-input-section {
+  display: flex;
+  align-items: stretch;
+  background-color: white;
+  border: none;
+  // border-radius: 5px;
+}
+
+.rp-default-input-section input {
+  padding: 20px;
+  color: white;
+  background: transparent;
+  border: 0;
+  outline: none;
+}
+
+.rp-default-input-section input::placeholder {
+  color: #94bfff;
+}
+
+.rp-default-input-section a {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  color: white;
+  font-size: 12px;
+  background-color: black;
+  // border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+.rp-default-input-section a:hover,
+.rp-default-input-section a:active {
+  background-color: red;
+}
+
+.rp-default-select-section {
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  padding: 10px 10px;
+  p {
+    text-align: center;
+    font-size: 16px;
+    color: white;
+    margin: 0;
+  }
+  div {
+    display: flex;
+    justify-content: center;
+    a {
+      font-size: 12px;
+      width: 40%;
+      text-align: center;
+      border: 1px solid white;
+      color: white;
+      margin: 5px 10px 5px 0px;
+      cursor: pointer;
+    }
+  }
+}
+
+.rp-default-input-section_select.yes:hover {
+  background-color: green;
+}
+.rp-default-input-section_select.no:hover {
+  background-color: red;
+}
+
+.rp-default-input-section_select.yes-active {
+  // background-color: green;
+}
+
+.rp-default-input-section_select.no-active {
+  // background-color: red;
+}
+
+.rp-annotations {
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  // margin-top: -30px;
+
+  ul {
+    list-style: none;
+    min-height: 40px;
+    max-height: 175px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    li {
+      span {
+        cursor: pointer;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+.rp-form {
+  display: flex;
+  flex-direction: column;
+  fieldset {
+    border: none;
+  }
+  button.annotationModalBtn {
+    border: 1px solid #232323;
+    align-content: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    color: white;
+    cursor: pointer;
+    outline: none;
+    vertical-align: middle;
+    text-decoration: none;
+    background: transparent;
+    margin: 0;
+    padding: 0.3rem 1rem;
+    position: relative;
+    width: 110px;
+    margin-right: 1rem;
+    background-color: rgb(1, 100, 1);
+    &:hover {
+      background-color: green;
+    }
+  }
+
+  .radio-forms {
+    display: block;
+    width: 90vw;
+    .grouped_radio {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      width: 100%;
+    }
+    label.radio-control {
+      user-select: none;
+      cursor: pointer;
+      // margin: 1% 0% 1% 0%;
+      p {
+        margin: 0;
+        margin-bottom: -1.6rem;
+        text-align: center;
+      }
+      img {
+        display: block;
+        pointer-events: none;
+        width: 200px;
+        height: 200px;
+        opacity: 0.8;
+        margin: auto;
+        // border-radius: 50%;
+        border: 5px solid black;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+        transition: opacity 500ms ease-out, border 500ms ease-out;
+        &:hover {
+          opacity: 1;
+        }
+      }
+      input[type="radio"] {
+        // display: inline-block;
+        // position: absolute;
+        // overflow: hidden;
+        // width: 1px;
+        // height: 1px;
+        // left: -1000px;
+        // top: -1000px;
+      }
+      input[type="radio"]:checked ~ img {
+        opacity: 1 !important;
+        border-color: #094 !important;
+        box-shadow: 0 1px 8px rgba(0, 0, 0, 0.4) !important;
+      }
+    }
+  }
+  .slider-forms {
+    display: flex;
+    flex-direction: row;
+    .rp-slider {
+      margin: 1rem 0% 3rem 0%;
+      datalist {
+        display: flex;
+        width: 608px;
+        justify-content: space-between;
+        height: 1rem;
+        // background-color: red;
+      }
+      input {
+        width: 600px;
+        // -webkit-appearance: none;
+        height: 3px;
+        border-radius: 5px;
+        outline: none;
+        padding: 0;
+        margin: 0;
+      }
+    }
+
+    .range-slider-value {
+      display: block;
+      position: relative;
+      width: 250px;
+      color: white;
+      line-height: 20px;
+      text-align: center;
+      border-radius: 3px;
+      background: black;
+      padding: 5px 10px;
+
+      // &:after {
+      //   position: absolute;
+      //   top: 8px;
+      //   left: -7px;
+      //   width: 0;
+      //   height: 0;
+      //   border-top: 7px solid transparent;
+      //   border-right: 7px solid variables.$black;
+      //   border-bottom: 7px solid transparent;
+      //   content: "";
+      // }
+    }
+  }
+  // margin: 0% 0% 0% 10%;
+  // button {
+  //   margin: 20% 0% 1% 80%;
+  // }
+}
+
+.overflowList {
+}
