@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -11,7 +12,7 @@ export default function Hero() {
 
   useEffect(() => {
     setScrollState(2);
-  });
+  },[scrollState]);
 
   return (
     <section className="container flex flex-col mx-auto items-center md:flex-row justify-center py-10 md:p-5 px-5">
@@ -32,10 +33,10 @@ export default function Hero() {
       </div>
       <div className="flex pt-12">
         <div className={`md:ml-6 duration-100 ease-in ${scrollState < 1 ? 'opacity-0' : 'opacity-100'}`}>
-          <Image src="/images/home/hero1.jpg" height={450} width={300} />
+          <Image src="/images/home/hero1.jpg" height={450} width={300} alt="Sidewalk in Manila 1" />
         </div>
         <div className={`mt-12 -ml-12 duration-500 ease-in ${scrollState < 1 ? 'opacity-0' : 'opacity-100'}`}>
-          <Image className="shadow-xl" src="/images/home/hero2.jpg" height={450} width={300} />
+          <Image className="shadow-xl" src="/images/home/hero2.jpg" height={450} width={300} alt="Sidewalk in Manila 2" />
         </div>
       </div>
     </section>

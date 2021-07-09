@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { ReactPictureAnnotation } from "./react-picture-annotation/index";
 import H1 from 'ui/heading/h1';
 

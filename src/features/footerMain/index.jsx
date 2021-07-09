@@ -1,3 +1,4 @@
+/* eslint-disable react/react-in-jsx-scope */
 import Link from 'next/link';
 
 import Logo from '@/ui/logo';
@@ -10,7 +11,7 @@ export default function Footer() {
 
         <div className="md:flex justify-between md:flex-wrap md:-mx-4 md:pb-6">
 
-          <Link href="/">
+          <Link passHref href="/">
             <div className="md:px-4 mt-4">
               <Logo height={50} white />
             </div>
@@ -81,8 +82,8 @@ export default function Footer() {
               </p>
             </div>
             <div className="md:flex-1 md:px-4 text-center md:text-right">
-              <a href="/" className="py-2 px-4 text-white inline-block hover:underline">Terms of Service</a>
-              <a href="/" className="py-2 px-4 text-white inline-block hover:underline">Privacy Policy</a>
+              <Link href="/terms-of-service" className="py-2 px-4 text-white inline-block hover:underline">Terms of Service</Link>
+              <Link href="/privacy-policy" className="py-2 px-4 text-white inline-block hover:underline">Privacy Policy</Link>
             </div>
           </div>
 

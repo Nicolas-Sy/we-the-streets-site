@@ -1,9 +1,10 @@
 import './globals.scss';
+import { Provider } from 'next-auth/client';
 
 export default function App({ Component, pageProps }) {
   return (
-    <>
-      <Component {...pageProps} />
-    </>
+    <Provider session={pageProps.session}>
+        <Component {...pageProps} />
+    </Provider>
   );
 }

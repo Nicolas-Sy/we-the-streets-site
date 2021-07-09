@@ -11,7 +11,7 @@ export default function aboutSlide({
     <div className={active ? 'flex flex-col max-w-5xl mx-auto transition-all' : 'opacity-0 fixed w-0 top-0 h-0 z-0'}>
       {/* <div classNam="flex"> */}
       <div className={active ? 'transition-all duration-700 left-0 h-screen fixed w-0 z-0 bg-white top-0' : ' top-0 h-screen w-screen bg-white fixed z-10'} />
-      <Image src={`/images/about/${img}`} height={450} width={700} quality={100} />
+      <Image src={`/images/about/${img}`} height={450} width={700} quality={100} alt={img} />
       {/* </div> */}
       <div className={active ? 'transition-all delay-500 ease-in-out duration-700 bg-white py-12 px-4 md:-ml-10 -mt-64 mb-32 z-10 relative w-64 shadow-xl' : 'opacity-0 -mt-64 mb-32 py-12'}>
         <H2>

@@ -127,13 +127,13 @@
   background-color: red;
 }
 
-.rp-default-input-section_select.yes-active {
-  // background-color: green;
-}
+// .rp-default-input-section_select.yes-active {
+//   // background-color: green;
+// }
 
-.rp-default-input-section_select.no-active {
-  // background-color: red;
-}
+// .rp-default-input-section_select.no-active {
+//   // background-color: red;
+// }
 
 //Custom
 .annotation-container {
@@ -255,15 +255,15 @@
           opacity: 1;
         }
       }
-      input[type="radio"] {
-        // display: inline-block;
-        // position: absolute;
-        // overflow: hidden;
-        // width: 1px;
-        // height: 1px;
-        // left: -1000px;
-        // top: -1000px;
-      }
+      // input[type="radio"] {
+      //   // display: inline-block;
+      //   // position: absolute;
+      //   // overflow: hidden;
+      //   // width: 1px;
+      //   // height: 1px;
+      //   // left: -1000px;
+      //   // top: -1000px;
+      // }
       input[type="radio"]:checked ~ img {
         opacity: 1 !important;
         border-color: #094 !important;
@@ -324,5 +324,5 @@
   // }
 }
 
-.overflowList {
-}
+// .overflowList {
+// }

@@ -1,5 +1,3 @@
-import React from 'react';
-
 import H2 from 'ui/heading/h2';
 import P from 'ui/heading/p';
 

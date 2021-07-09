@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 import React, { useEffect, useState, useRef } from 'react';
 
 import H2 from '@/ui/heading/h2';
@@ -11,38 +12,43 @@ export default function Help() {
   const [passed1, setPassed1] = useState(true);
   const ref = useRef(null);
 
-  const callbackFunction = (entries) => {
-    const [entry] = entries;
+  
 
-    if (isVisible) {
-      setPassed1(false);
-      setPassed(true);
-    }
-
-    if (!passed1 && !isVisible) {
-      setPassed(false);
-      setPassed1(true);
-    }
-
-    setIsVisible(entry.isIntersecting || (passed && passed1));
-  };
-
-  const options = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 1.0,
-  };
+ 
 
   useEffect(() => {
     // window.addEventListener('scroll', handleScroll);
     // return () => window.removeEventListener('scroll', handleScroll);
+    const callbackFunction = (entries) => {
+      const [entry] = entries;
+  
+        if (isVisible) {
+        setPassed1(false);
+        setPassed(true);
+      }
+  
+      if (!passed1 && !isVisible) {
+        setPassed(false);
+        setPassed1(true);
+      }
+  
+      setIsVisible(entry.isIntersecting || (passed && passed1));
+    };
+    const options = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 1.0,
+    };
+
     const observer = new IntersectionObserver(callbackFunction, options);
     if (ref.current) observer.observe(ref.current);
 
+    const refCurrent = ref.current;
+
     return () => {
-      if (ref.current) observer.unobserve(ref.current);
+      if (refCurrent) observer.unobserve(refCurrent);
     };
-  }, [ref, options]);
+  }, [ref, isVisible, passed, passed1]);
 
   return (
     <section className="container mx-auto py-5 px-5">

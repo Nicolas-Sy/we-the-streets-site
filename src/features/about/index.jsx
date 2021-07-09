@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 import React, { useState, useEffect } from 'react';
 
 import AboutSlide from './aboutSlide';
@@ -11,11 +12,10 @@ export default function AboutSection() {
   };
 
   useEffect(() => {
-    // Update the document title using the browser API
     if (slideState === -1) {
       setSlide(0);
     }
-  });
+  }, [slideState]);
 
   return (
     <section className="container mx-auto">

@@ -1,4 +1,3 @@
-import React from 'react';
 import { useRouter } from 'next/router';
 
 import H2 from 'ui/heading/h2';

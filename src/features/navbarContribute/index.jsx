@@ -1,9 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react';
-import Link from 'next/link';
+import { useState, useEffect, useRef } from "react";
+import Link from "next/link";
+import { signOut } from "next-auth/client";
 
-import Logo from '@/ui/logo';
-import OutlineButton from 'ui/buttons/buttonOutline';
-import styles from './styles.module.css';
+import Logo from "@/ui/logo";
+import OutlineButton from "ui/buttons/buttonOutline";
+import styles from "./styles.module.css";
 
 export default function Nav() {
   const [menuState, setMenuState] = useState(false);
@@ -15,8 +16,8 @@ export default function Nav() {
   const useOutsideAlerter = (ref) => {
     useEffect(() => {
       /**
-         * Alert if clicked on outside of element
-         */
+       * Alert if clicked on outside of element
+       */
       function handleClickOutside(event) {
         if (ref.current && !ref.current.contains(event.target)) {
           setMenuState(false);
@@ -24,10 +25,10 @@ export default function Nav() {
       }
 
       // Bind the event listener
-      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener("mousedown", handleClickOutside);
       return () => {
         // Unbind the event listener on clean up
-        document.removeEventListener('mousedown', handleClickOutside);
+        document.removeEventListener("mousedown", handleClickOutside);
       };
     }, [ref]);
   };
@@ -38,19 +39,50 @@ export default function Nav() {
   return (
     <nav className="flex container mx-auto px-1 md:px-5 py-5 md:py-10 z-10 relative">
       <div>
-        <Link href="/contribute"><Logo height={30} subTitle="contribute" /></Link>
+        <Link passHref href="/contribute">
+          <Logo height={30} subTitle="contribute" />
+        </Link>
       </div>
       <div ref={wrapperRef} className="flex flex-grow align-middle justify-end">
-        <OutlineButton onClick={() => menuToggle()} className={`mr-2 md:mr-5 pt-4 z-10 hover:bg-red-500 hover:text-white border-red-500 ${menuState ? 'bg-red-500 text-white' : 'text-red-500 bg-transparent focus:outline-none'}`}>Menu</OutlineButton>
-        <div className={menuState ? 'transition-all duration-300 ease-in-out absolute mt-16 mr-5 w-32 z-20 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none' : 'absolute opacity-0 left-0 h-0 w-0 cursor-default z-0'}>
+        <OutlineButton
+          onClick={() => menuToggle()}
+          className={`mr-2 md:mr-5 pt-4 z-10 hover:bg-red-500 hover:text-white border-red-500 ${
+            menuState
+              ? "bg-red-500 text-white"
+              : "text-red-500 bg-transparent focus:outline-none"
+          }`}
+        >
+          Menu
+        </OutlineButton>
+        <div
+          className={
+            menuState
+              ? "transition-all duration-300 ease-in-out absolute mt-16 mr-5 w-32 z-20 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+              : "absolute opacity-0 left-0 h-0 w-0 cursor-default z-0"
+          }
+        >
           <ul className={styles.ul}>
-            <Link href="/"><li>Home</li></Link>
+            <Link passHref href="/">
+              <li>Home</li>
+            </Link>
             <hr className="my-1" />
-            <Link href="/contribute/"><li>Dashboard</li></Link>
-            <Link href="/contribute/annotate"><li>Annotate</li></Link>
-            <Link href="/contribute/help"><li>Help</li></Link>
+            <Link passHref href="/contribute/">
+              <li>Dashboard</li>
+            </Link>
+            <Link passHref href="/contribute/annotate">
+              <li>Annotate</li>
+            </Link>
+            <Link passHref href="/contribute/help">
+              <li>Help</li>
+            </Link>
             <hr className="my-1" />
-            <button type="button" className="flex w-full"><li>Logout</li></button>
+            <button
+              type="button"
+              className="flex w-full"
+              onClick={() => signOut()}
+            >
+              <li>Logout</li>
+            </button>
           </ul>
         </div>
       </div>
