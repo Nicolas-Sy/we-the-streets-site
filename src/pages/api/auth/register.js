@@ -29,6 +29,14 @@ const handler = async (req, res) => {
       res.status(403).send({ message: "The username has already been used." });
     } else {
       console.log("Creating new user in db");
+      const dateRegistered = new Date();
+      const activities = [
+        {
+          activity: "Registered to Atlas",
+          date: dateRegistered,
+          tag: "register",
+        },
+      ];
       await db
         .collection("users")
         .insertOne({
@@ -39,6 +47,7 @@ const handler = async (req, res) => {
           age,
           mobilityAids,
           commuteFrequency,
+          activities,
         })
         .then(({ ops }) => ops[0]);
       res.status(201).send("Done");

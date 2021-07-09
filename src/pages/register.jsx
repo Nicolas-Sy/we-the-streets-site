@@ -1,13 +1,23 @@
-import { useState } from "react";
-import { providers, getSession, csrfToken, signIn } from "next-auth/client";
+import { useState, useEffect } from "react";
+import { getSession, signIn, useSession } from "next-auth/client";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 import Page from "@/ui/page";
 import H1 from "@/ui/heading/h1";
 import H2 from "@/ui/heading/h2";
 
 export default function register({ providers, csrfToken }) {
-  const [loading, setLoading] = useState(false);
+  const [loadingForm, setLoading] = useState(false);
+  const [session, loading] = useSession();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!loading && session) {
+      router.push("/contribute");
+    }
+  }, [session, loading, router]);
+
   const [passwordError, setPasswordError] = useState(false);
   const [usernameError, setUsernameError] = useState(false);
   const [emailError, setEmailError] = useState(false);
@@ -309,9 +319,9 @@ export default function register({ providers, csrfToken }) {
             <button
               className="ml-auto w-1/3 bg-gray-800 text-white p-2 rounded font-semibold hover:bg-gray-900"
               type="submit"
-              disabled={loading}
+              disabled={loadingForm}
             >
-              {loading ? "Loading..." : "Submit"}
+              {loadingForm ? "Loading..." : "Submit"}
             </button>
           </div>
           {passwordError ? (
@@ -349,19 +359,8 @@ export default function register({ providers, csrfToken }) {
 }
 
 register.getInitialProps = async (context) => {
-  const { req, res } = context;
-  const session = await getSession({ req });
-
-  if (session && res && session.accessToken) {
-    res.writeHead(302, {
-      Location: "/contribute",
-    });
-    res.end();
-    return;
-  }
+  const session = await getSession(context);
   return {
-    session: undefined,
-    providers: await providers(context),
-    csrfToken: await csrfToken(context),
+    props: { session },
   };
 };
