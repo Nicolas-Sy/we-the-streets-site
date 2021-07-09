@@ -2,6 +2,7 @@ import bcrypt from "bcryptjs";
 import { connectToDatabase } from "@/util/mongodb";
 
 const handler = async (req, res) => {
+  console.log("api login");
   if (req.method === "POST") {
     console.log("post login");
     const { db } = await connectToDatabase();
@@ -16,8 +17,9 @@ const handler = async (req, res) => {
       .findOne({ username, hashedPassword });
 
     if (user) res.status(201).json(user);
-  } else {
-    res.status(403).send("Invalid Credentials");
+    else {
+      res.status(403).send("Invalid Credentials");
+    }
   }
 };
 

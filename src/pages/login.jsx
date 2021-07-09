@@ -1,20 +1,22 @@
 import { useState } from "react";
 import { providers, getSession, csrfToken, signIn } from "next-auth/client";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 import Page from "@/ui/page";
 import H1 from "@/ui/heading/h1";
 
 export default function login({ providers, csrfToken }) {
   const [loading, setLoading] = useState(false);
+  const { error } = useRouter().query;
 
   async function onSubmit(e) {
     e.preventDefault();
     setLoading(true);
-    const email = e.currentTarget.username.value;
+    const username = e.currentTarget.username.value;
     const password = e.currentTarget.password.value;
     signIn("credentials", {
-      email,
+      username,
       password,
       // The page where you want to redirect to after a
       // successful login
@@ -55,6 +57,11 @@ export default function login({ providers, csrfToken }) {
               name="password"
             />
 
+            {error && (
+              <div className="text-xs -mb-2 pb-4 text-red-600">
+                Invalid Credentials
+              </div>
+            )}
             <div className="flex items-center">
               <div className="w-2/3 flex items-center">
                 <a className="text-sm font-bold text-teal-500 hover:underline cursor-pointer">

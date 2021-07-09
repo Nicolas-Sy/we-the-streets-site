@@ -1,6 +1,9 @@
 import NextAuth from "next-auth";
 import Providers from "next-auth/providers";
 
+import bcrypt from "bcryptjs";
+import { connectToDatabase } from "@/util/mongodb";
+
 const options = {
   providers: [
     Providers.Credentials({
@@ -10,33 +13,26 @@ const options = {
       // You can specify whatever fields you are expecting to be submitted.
       // e.g. domain, username, password, 2FA token, etc.
       credentials: {
-        username: { label: "Username", type: "text", placeholder: "jsmith" },
+        username: { label: "username", type: "text", placeholder: "username" },
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials, req) {
         // Add logic here to look up the user from the credentials supplied
-        const user = { id: 1, name: "J Smith", email: "jsmith@example.com" };
-        // const res = await fetch("/api/auth/login", {
-        //   method: "GET",
-        //   headers: { "Content-Type": "application/json" },
-        //   body: JSON.stringify(req.body),
-        // });
+        const { db } = await connectToDatabase();
+        const { username, password } = req.body;
 
-        if (user) {
-          // Any object returned will be saved in `user` property of the JWT
+        const user = await db.collection("users").findOne({ username });
+        if (user && (await bcrypt.compare(password, user.hashedPassword))) {
           return user;
         } else {
-          // If you return null or false then the credentials will be rejected
-          return null;
-          // You can also Reject this callback with an Error or with a URL:
-          // throw new Error('error message') // Redirect to error page
-          // throw '/path/to/redirect'        // Redirect to a URL
+          throw new Error("Invalid Credentials"); // Redirect to error page
         }
       },
     }),
   ],
   pages: {
     signIn: "/login",
+    error: "/login",
   },
   session: {
     jwt: true,
