@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 
 import Navbar from "@/features/navbarContribute";
 import Footer from "@/features/footerMain";
+import H1 from "ui/heading/h1";
 
 export default function Layout({ children }) {
   const [session, loading] = useSession();
@@ -29,29 +30,13 @@ export default function Layout({ children }) {
     return (
       <div className="">
         <Navbar />
-        Protected Page, Redirecting to Login
+        <section className="container mx-auto py-20">
+          <H1>Protected page. Redirecting to login page</H1>
+        </section>
         <Footer />
       </div>
     );
   }
-
-  // if (loading) {
-  //   return (
-  //     <div className="">
-  //       <Navbar />
-
-  //       <Footer />
-  //     </div>
-  //   );
-  // } else {
-  //   return (
-  //     <div className="">
-  //       <Navbar />
-  //       {children}
-  //       <Footer />
-  //     </div>
-  //   );
-  // }
 }
 
 export async function getServerSideProps(context) {
