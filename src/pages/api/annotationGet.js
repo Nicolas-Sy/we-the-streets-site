@@ -3,11 +3,11 @@ import { connectToDatabase } from "@/util/mongodb";
 const handler = async (req, res) => {
   if (req.method === "GET") {
     const { db } = await connectToDatabase();
-    const { imgRecordNumber } = req.body;
+    const { annotationTotalCount } = req.body;
 
     const imgRecords = await db
       .collection("Image")
-      .aggregate([{ $sample: { size: imgRecordNumber } }])
+      .aggregate([{ $sample: { size: annotationTotalCount } }])
       .toArray();
 
     res.json({
