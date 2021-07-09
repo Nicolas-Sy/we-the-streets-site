@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 import NavLink from "@/ui/navlink";
 import Logo from "@/ui/logo";
 
@@ -7,9 +5,9 @@ export default function Nav() {
   return (
     <nav className="flex container mx-auto px-1 md:px-5 py-5 md:py-10 z-10 relative">
       <div>
-        <Link passHref href="/">
+        <a href="/">
           <Logo height={30} />
-        </Link>
+        </a>
       </div>
       <div className="flex flex-grow align-middle justify-end">
         <ul className="flex align-bottom">

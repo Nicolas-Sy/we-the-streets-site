@@ -39,9 +39,9 @@ export default function Nav() {
   return (
     <nav className="flex container mx-auto px-1 md:px-5 py-5 md:py-10 z-10 relative">
       <div>
-        <Link passHref href="/contribute">
+        <a>
           <Logo height={30} subTitle="contribute" />
-        </Link>
+        </a>
       </div>
       <div ref={wrapperRef} className="flex flex-grow align-middle justify-end">
         <OutlineButton

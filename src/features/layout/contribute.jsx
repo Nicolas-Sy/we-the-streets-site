@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useSession } from "next-auth/client";
+import { useSession, getSession } from "next-auth/client";
 import { useRouter } from "next/router";
 
 import Navbar from "@/features/navbarContribute";
@@ -15,15 +15,9 @@ export default function Layout({ children }) {
     }
   }, [session, loading, router]);
 
-  if (loading) {
-    return (
-      <div className="">
-        <Navbar />
+  if (typeof window !== "undefined" && loading) return null;
 
-        <Footer />
-      </div>
-    );
-  } else {
+  if (session) {
     return (
       <div className="">
         <Navbar />
@@ -31,5 +25,38 @@ export default function Layout({ children }) {
         <Footer />
       </div>
     );
+  } else {
+    return (
+      <div className="">
+        <Navbar />
+        Protected Page, Redirecting to Login
+        <Footer />
+      </div>
+    );
   }
+
+  // if (loading) {
+  //   return (
+  //     <div className="">
+  //       <Navbar />
+
+  //       <Footer />
+  //     </div>
+  //   );
+  // } else {
+  //   return (
+  //     <div className="">
+  //       <Navbar />
+  //       {children}
+  //       <Footer />
+  //     </div>
+  //   );
+  // }
+}
+
+export async function getServerSideProps(context) {
+  const session = await getSession(context);
+  return {
+    props: { session },
+  };
 }

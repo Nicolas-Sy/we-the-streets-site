@@ -1,15 +1,18 @@
-import Link from 'next/link';
+import Link from "next/link";
+import { getSession, useSession } from "next-auth/client";
 
-import Page from '@/ui/page';
-import H1 from '@/ui/heading/h1';
-import H2 from '@/ui/heading/h2';
-import H3 from '@/ui/heading/h3';
-import P from 'ui/heading/p';
-import SolidButton from 'ui/buttons/buttonSolid';
-import OutlineButton from 'ui/buttons/buttonOutline';
-import Tooltip from 'ui/tooltip';
+import Page from "@/ui/page";
+import H1 from "@/ui/heading/h1";
+import H2 from "@/ui/heading/h2";
+import H3 from "@/ui/heading/h3";
+import P from "ui/heading/p";
+import SolidButton from "ui/buttons/buttonSolid";
+import OutlineButton from "ui/buttons/buttonOutline";
+import Tooltip from "ui/tooltip";
 
 export default function ContributePage() {
+  const [session, loading] = useSession();
+  if (typeof window !== "undefined" && loading) return null;
   return (
     <Page
       title="Dashboard - Atlas Contribute"
@@ -20,10 +23,14 @@ export default function ContributePage() {
         <div className="lg:max-w-7xl lg:w-4/5 lg:mx-auto">
           <H1>Contribute to Atlas</H1>
           <div className="flex flex-col pt-8 md:flex-row justify-between">
-            <H2>XunylYasna</H2>
+            <H2>{session ? session.user.email : ""}</H2>
             <div className="mt-2">
-              <OutlineButton className="mr-5 border hover:border-black"><Link href="/contribute/help">Annotation Guide</Link></OutlineButton>
-              <SolidButton><Link href="/contribute/annotate">Start Annotating</Link></SolidButton>
+              <OutlineButton className="mr-5 border hover:border-black">
+                <Link href="/contribute/help">Annotation Guide</Link>
+              </OutlineButton>
+              <SolidButton>
+                <Link href="/contribute/annotate">Start Annotating</Link>
+              </SolidButton>
             </div>
           </div>
         </div>
@@ -37,24 +44,15 @@ export default function ContributePage() {
               <H3 className="mb-4">Your profile</H3>
               <P>
                 <Tooltip>Total number of annotations you made</Tooltip>
-                <span className="font-bold">
-                  Total annotations:
-                  {' '}
-                </span>
-                {' '}
-                0
+                <span className="font-bold">Total annotations: </span> 0
               </P>
               <P>
                 <Tooltip>Last time you annotated</Tooltip>
-                <span className="font-bold">Last Annotation Session: </span>
-                {' '}
-                0
+                <span className="font-bold">Last Annotation Session: </span> 0
               </P>
               <P>
                 <Tooltip>Current active annotation from this session</Tooltip>
-                <span className="font-bold">Active annotion sessions: </span>
-                {' '}
-                0
+                <span className="font-bold">Active annotion sessions: </span> 0
               </P>
             </div>
           </div>
@@ -67,3 +65,10 @@ export default function ContributePage() {
     </Page>
   );
 }
+
+ContributePage.getInitialProps = async (context) => {
+  const session = await getSession(context);
+  return {
+    props: { session },
+  };
+};

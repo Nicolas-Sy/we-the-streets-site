@@ -1,24 +1,24 @@
-import nextConnect from "next-connect";
 import bcrypt from "bcryptjs";
-
-import middleware from "@/middleware";
 import { connectToDatabase } from "@/util/mongodb";
 
-const handler = nextConnect();
-handler.use(middleware);
+const handler = async (req, res) => {
+  if (req.method === "POST") {
+    console.log("post login");
+    const { db } = await connectToDatabase();
 
-// POST /api/auth/register
-handler.post(async (req, res) => {
-  const { db } = await connectToDatabase();
+    // Required fields are done on the front end
+    const { username, password } = req.body;
 
-  // Required fields are done on the front end
-  const { username, password } = req.body;
+    const hashedPassword = await bcrypt.hash(password, 10);
 
-  const hashedPassword = await bcrypt.hash(password, 10);
+    const user = await db
+      .collection("users")
+      .findOne({ username, hashedPassword });
 
-  // if (db.collection("users").countDocuments({ email })) {
-  //   res.status(403).send("The email has already been used.");
-  // }
-});
+    if (user) res.status(201).json(user);
+  } else {
+    res.status(403).send("Invalid Credentials");
+  }
+};
 
 export default handler;

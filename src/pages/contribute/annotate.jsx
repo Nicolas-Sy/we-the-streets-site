@@ -1,5 +1,4 @@
-/* eslint-disable radix */
-/* eslint-disable react/destructuring-assignment */
+// eslint-disable-next-line no-use-before-define
 import React from 'react';
 import { isMobile } from 'react-device-detect';
 

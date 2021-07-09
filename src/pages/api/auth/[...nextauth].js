@@ -16,8 +16,6 @@ const options = {
       async authorize(credentials, req) {
         // Add logic here to look up the user from the credentials supplied
         const user = { id: 1, name: "J Smith", email: "jsmith@example.com" };
-        // const username = req.body.username;
-        // const password = req.body.password;
         // const res = await fetch("/api/auth/login", {
         //   method: "GET",
         //   headers: { "Content-Type": "application/json" },
