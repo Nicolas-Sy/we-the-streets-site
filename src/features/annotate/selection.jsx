@@ -8,9 +8,9 @@ export default function AnnotationSessionSelection() {
 
   const setAnnotationSession = async (annotationTotalCount) => {
     const annotationResponse = await fetch("/api/annotationGet", {
-      method: "GET",
+      method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: { annotationTotalCount: annotationTotalCount },
+      body: JSON.stringify(annotationTotalCount),
     });
     const annotationJson = await annotationResponse.json();
     window.localStorage.setItem(

@@ -3,7 +3,7 @@ import { connectToDatabase } from "@/util/mongodb";
 
 const handler = async (req, res) => {
   if (req.method === "POST") {
-    console.log("post route");
+    console.log("Posting Registration");
     const { db } = await connectToDatabase();
 
     // Required fields are done on the front end
@@ -30,6 +30,7 @@ const handler = async (req, res) => {
     } else {
       console.log("Creating new user in db");
       const dateRegistered = new Date();
+      const totalAnnotations = 0;
       const activities = [
         {
           activity: "Registered to Atlas",
@@ -48,6 +49,7 @@ const handler = async (req, res) => {
           mobilityAids,
           commuteFrequency,
           activities,
+          totalAnnotations,
         })
         .then(({ ops }) => ops[0]);
       res.status(201).send("Done");

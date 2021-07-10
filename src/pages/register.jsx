@@ -68,7 +68,7 @@ export default function register({ providers, csrfToken }) {
 
       if (res.status === 201) {
         signIn("credentials", {
-          email,
+          username,
           password,
           // The page where you want to redirect to after a
           // successful login

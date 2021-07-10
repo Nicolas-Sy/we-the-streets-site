@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-use-before-define
 import React, { MouseEventHandler } from "react";
 import Router from "next/router";
 
@@ -14,7 +15,7 @@ import {
 } from "./Shape";
 import Transformer, { ITransformer } from "./Transformer";
 import H2 from "ui/heading/h2";
-import H3 from "ui/heading/h2";
+import H3 from "ui/heading/h3";
 import SolidButton from "ui/buttons/buttonSolid";
 
 interface IReactPictureAnnotationProps {
@@ -29,7 +30,7 @@ interface IReactPictureAnnotationProps {
   image: string;
   annotationStyle: IShapeStyle;
   defaultAnnotationSize?: number[];
-  userObject: Object;
+  username: Object;
   imageID: String;
   currentAnnotationCount: number;
   inputElement: (
@@ -192,9 +193,6 @@ export default class ReactPictureAnnotation extends React.Component<IReactPictur
       sliderValue,
     } = this.state;
 
-    // const [sliderValue, setSliderValue] = useState(5);
-    // const [pavementType, setPavementType] = useState("No Sidewalk");
-
     return (
       <section className="annotation-container">
         <H2 className="my-4 annotation-step-text">
@@ -243,7 +241,7 @@ export default class ReactPictureAnnotation extends React.Component<IReactPictur
           <div className="rp-annotations">
             <div>
               <H3 className>
-                <span className="text-4xl">Selected Obstructions</span>
+                <span className="text-2xl">Selected Obstructions</span>
               </H3>
               <div className="annotation-instruction">
                 <p>
@@ -283,6 +281,8 @@ export default class ReactPictureAnnotation extends React.Component<IReactPictur
                           </p>
                         </li>
                       );
+                    } else {
+                      return <div />;
                     }
                   })}
               </ul>
@@ -290,7 +290,7 @@ export default class ReactPictureAnnotation extends React.Component<IReactPictur
             <div>
               <H3 className>
                 {" "}
-                <span className="text-4xl">New Obstructions</span>
+                <span className="text-2xl">New Obstructions</span>
               </H3>
               <div className="annotation-instruction">
                 <p>
@@ -341,6 +341,8 @@ export default class ReactPictureAnnotation extends React.Component<IReactPictur
                           </p>
                         </li>
                       );
+                    } else {
+                      return <div />;
                     }
                   })}
               </ul>
@@ -463,9 +465,6 @@ export default class ReactPictureAnnotation extends React.Component<IReactPictur
           </div>
 
           <div className="flex justify-center my-12">
-            {/* <button className="annotationModalBtn" onClick={this.submit}>
-              Submit
-            </button> */}
             <SolidButton className submit onClick={this.submit}>
               Submit
             </SolidButton>
@@ -535,8 +534,6 @@ export default class ReactPictureAnnotation extends React.Component<IReactPictur
   };
 
   public selectAnnotation = (data) => {
-    let hasSelectedItem = false;
-
     for (const item of this.shapes) {
       const isSelected = item.getAnnotationData().id === data.id;
       const { x, y, height } = item.paint(
@@ -552,8 +549,6 @@ export default class ReactPictureAnnotation extends React.Component<IReactPictur
             this.scaleState.scale
           );
         }
-
-        hasSelectedItem = true;
 
         this.currentTransformer.paint(
           this.canvas2D,

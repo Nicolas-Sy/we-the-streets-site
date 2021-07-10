@@ -1,12 +1,12 @@
 // eslint-disable-next-line no-use-before-define
-import React from 'react';
-import { isMobile } from 'react-device-detect';
+import React from "react";
+import { isMobile } from "react-device-detect";
 
-import Page from '@/ui/page';
-import MobileWarning from 'features/annotate/mobileWarning';
-import AnnotationSessionSelection from 'features/annotate/selection';
-import AnnotateForm from 'features/annotate/form';
-import AnnotationDone from 'features/annotate/done';
+import Page from "@/ui/page";
+import MobileWarning from "features/annotate/mobileWarning";
+import AnnotationSessionSelection from "features/annotate/selection";
+import AnnotateForm from "features/annotate/form";
+import AnnotationDone from "features/annotate/done";
 
 export default class AnnotatePage extends React.Component {
   constructor(props) {
@@ -20,15 +20,15 @@ export default class AnnotatePage extends React.Component {
 
   componentDidMount() {
     const annotationTotalCount = parseInt(
-      localStorage.getItem('annotationTotalCount'),
+      localStorage.getItem("annotationTotalCount")
     );
 
     const annotationCurrentCount = parseInt(
-      localStorage.getItem('annotationCurrentCount'),
+      localStorage.getItem("annotationCurrentCount")
     );
 
     const annotationSetData = JSON.parse(
-      localStorage.getItem('annotationSetData'),
+      localStorage.getItem("annotationSetData")
     );
     this.setState({
       annotationCurrentCount,
@@ -41,18 +41,25 @@ export default class AnnotatePage extends React.Component {
     const renderComponent = () => {
       /* If the user is using a mobile device */
       if (isMobile) {
-        return (<MobileWarning />);
+        return <MobileWarning />;
       }
 
       /* If the user has no annotation sessions active */
-      if (!this.state.annotationCurrentCount || !this.state.annotationTotalCount) {
-        return (<AnnotationSessionSelection />);
+      if (
+        !this.state.annotationCurrentCount ||
+        !this.state.annotationTotalCount
+      ) {
+        return <AnnotationSessionSelection />;
       }
 
       /* If the use has an on-going annotation session */
-      if (this.state.annotationCurrentCount <= this.state.annotationTotalCount) {
-        const data = JSON.parse(this.state.annotationSetData);
-        const singleImage = data.imgRecords[this.state.annotationCurrentCount - 1]
+      if (
+        this.state.annotationCurrentCount <= this.state.annotationTotalCount
+      ) {
+        const data = this.state.annotationSetData;
+        const singleImage =
+          data.imgRecords[this.state.annotationCurrentCount - 1];
+
         return (
           <AnnotateForm
             data={singleImage}
@@ -72,7 +79,7 @@ export default class AnnotatePage extends React.Component {
         );
       }
 
-      return (<></>);
+      return <></>;
     };
     return (
       <Page

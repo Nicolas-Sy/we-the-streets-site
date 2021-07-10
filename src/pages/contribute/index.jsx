@@ -23,7 +23,7 @@ export default function ContributePage() {
         <div className="lg:max-w-7xl lg:w-4/5 lg:mx-auto">
           <H1>Contribute to Atlas</H1>
           <div className="flex flex-col pt-8 md:flex-row justify-between">
-            <H2>{session ? session.user.email : ""}</H2>
+            <H2>{session ? session.user.username : ""}</H2>
             <div className="mt-2">
               <OutlineButton className="mr-5 border hover:border-black">
                 <Link href="/contribute/help">Annotation Guide</Link>
