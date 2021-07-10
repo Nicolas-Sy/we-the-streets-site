@@ -30,7 +30,7 @@ interface IReactPictureAnnotationProps {
   image: string;
   annotationStyle: IShapeStyle;
   defaultAnnotationSize?: number[];
-  username: Object;
+  username: String;
   imageID: String;
   currentAnnotationCount: number;
   inputElement: (
@@ -477,56 +477,51 @@ export default class ReactPictureAnnotation extends React.Component<IReactPictur
   private submit = async () => {
     // isLoading(true);
 
-    // console.log(this.state.sliderValue);
-    // console.log(this.state.pavementType);
-    // console.log(this.currentAnnotationData);
-    // console.log(JSON.parse(JSON.stringify(this.props.userObject)).username);
-    window.localStorage.setItem(
-      "annotationCurrentCount",
-      JSON.stringify(this.props.currentAnnotationCount + 1)
+    // window.localStorage.setItem(
+    //   "annotationCurrentCount",
+    //   JSON.stringify(this.props.currentAnnotationCount + 1)
+    // );
+    // Router.reload();
+    // window.scrollTo(0, 0);
+    const username = this.props.username;
+    const selectedObjects = this.currentAnnotationData.filter(
+      (element) => !element.editable && element.selected
     );
-    Router.reload();
-    window.scrollTo(0, 0);
-    // const username = JSON.parse(JSON.stringify(this.props.userObject)).username;
-    // const selectedObjects = this.currentAnnotationData.filter(
-    //   (element) => !element.editable && element.selected
-    // );
-    // let selectedObjectsID = [];
-    // for (let i = 0; i < selectedObjects.length; i++) {
-    //   selectedObjectsID.push(selectedObjects[i].id);
-    // }
-    // const newObjects = this.currentAnnotationData.filter(
-    //   (element) => element.editable
-    // );
+    const selectedObjectsID = [];
+    for (let i = 0; i < selectedObjects.length; i++) {
+      selectedObjectsID.push(selectedObjects[i].id);
+    }
+    const newObjects = this.currentAnnotationData.filter(
+      (element) => element.editable
+    );
 
-    // const body = {
-    //   username: username,
-    //   imageID: this.props.imageID,
-    //   accessibilityRating: this.state.sliderValue,
-    //   pavementType: this.state.pavementType,
-    //   selectedObjectsID: selectedObjectsID,
-    //   newObjects: newObjects,
-    // };
-    // console.log(body);
-    // const res = await fetch("/api/annotationSubmit", {
-    //   method: "POST",
-    //   headers: { "Content-Type": "application/json" },
-    //   body: JSON.stringify(body),
-    // });
-    // console.log(res);
-    // if (res.status === 200) {
-    //   const newCount =
-    //     parseInt(localStorage.getItem("annotationCurrentCount")) + 1;
-    //   window.localStorage.setItem(
-    //     "annotationCurrentCount",
-    //     JSON.stringify(newCount)
-    //   );
-    //   Router.reload();
-    //   // Add ui to indicate sucessful submission
-    // } else {
-    //   // isLoading(false);
-    //   Router.replace("/contribute/error");
-    // }
+    const body = {
+      username: username,
+      imageID: this.props.imageID,
+      accessibilityRating: this.state.sliderValue,
+      pavementType: this.state.pavementType,
+      selectedObjectsID: selectedObjectsID,
+      newObjects: newObjects,
+    };
+    const res = await fetch("/api/annotationSubmit", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+    });
+    if (res.status === 200) {
+      const newCount =
+        parseInt(localStorage.getItem("annotationCurrentCount")) + 1;
+      window.localStorage.setItem(
+        "annotationCurrentCount",
+        JSON.stringify(newCount)
+      );
+      Router.reload();
+      window.scrollTo(0, 0);
+      // Add ui to indicate sucessful submission
+    } else {
+      // isLoading(false);
+      // Insert Error stuff
+    }
   };
 
   public setAnnotationState = (annotationState: IAnnotationState) => {

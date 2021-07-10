@@ -8,12 +8,12 @@ const handler = async (req, res) => {
     // Required fields are done on the front end
     const date = new Date();
     const {
+      imageID,
+      username,
       accessibilityRating,
       pavementType,
       selectedObjectsID,
       newObjects,
-      imageID,
-      username,
     } = req.body;
 
     await db
