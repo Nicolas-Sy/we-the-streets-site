@@ -1,7 +1,7 @@
 import Page from '@/ui/page';
 import H1 from 'ui/heading/h1';
 import H2 from 'ui/heading/h2';
-import H3 from 'ui/heading/h3';
+// import H3 from 'ui/heading/h3';
 import P from 'ui/heading/p';
 
 export default function Index() {

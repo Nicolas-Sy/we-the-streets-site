@@ -1,6 +1,6 @@
 import Page from '@/ui/page';
 import H1 from 'ui/heading/h1';
-import H2 from 'ui/heading/h2';
+// import H2 from 'ui/heading/h2';
 import H3 from 'ui/heading/h3';
 import P from 'ui/heading/p';
 
@@ -14,8 +14,8 @@ export default function Index() {
             <section className='container mx-auto px-5'>
                 <H1> Privacy Policy </H1>
                 <br />
-                <H2> heading </H2>
-                <P> this our privacy policy. etc etc.</P>
+                <H3> Data Privacy Statement </H3>
+                <P> </P>
                 <br />
             </section>
         </Page>
