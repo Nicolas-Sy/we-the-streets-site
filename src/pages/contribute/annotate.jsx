@@ -52,7 +52,7 @@ export default class AnnotatePage extends React.Component {
         return <AnnotationSessionSelection />;
       }
 
-      /* If the use has an on-going annotation session */
+      /* If the user has an on-going annotation session */
       if (
         this.state.annotationCurrentCount <= this.state.annotationTotalCount
       ) {

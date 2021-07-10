@@ -461,6 +461,22 @@ export default class ReactPictureAnnotation extends React.Component<IReactPictur
                 />
                 <img src="/images/annotationTool/tile_slippery_sidewalk.jpg"></img>
               </label>
+              <label className="radio-control" htmlFor="no_sidewalk">
+                <p className="radio-label">No Sidewalk</p>
+                <input
+                  type="radio"
+                  name="radio1"
+                  id="no_sidewalk"
+                  value="no_sidewalk"
+                  onChange={(e) => {
+                    this.setState({
+                      ...this.state,
+                      pavementType: e.target.value,
+                    });
+                  }}
+                />
+                <img src="/images/annotationTool/tile_slippery_sidewalk.jpg"></img>
+              </label>
             </fieldset>
           </div>
 
