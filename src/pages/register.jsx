@@ -315,7 +315,7 @@ export default function register({ providers, csrfToken }) {
               <label htmlFor="remember-me">
                 I have read the <Link href="/terms-of-use">
                   <a href="/terms-of-use" target="_blank" rel="noopener noreferrer">
-                    <span className="cursor-pointer py-2 px-1 text-black inline-block underline"> Terms of Use </span>
+                    <span className="cursor-pointer py-2 px-0 text-black inline-block underline"> Terms of Use </span>
                   </a>
                 </Link>
               </label>
