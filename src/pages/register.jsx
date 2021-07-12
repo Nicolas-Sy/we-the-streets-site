@@ -251,7 +251,7 @@ export default function register({ providers, csrfToken }) {
           </fieldset>
           <fieldset className="border-0 mb-4">
             <legend className="block text-gray-700 mb-2 font-bold">
-              How often do you commute in a public utility vehicle?
+              How often do you commute in a public utility vehicle? (Pre-pandemic)
             </legend>
             <label className="block text-gray-700 font-bold mb-2">
               <input
@@ -313,7 +313,11 @@ export default function register({ providers, csrfToken }) {
                 required
               />
               <label htmlFor="remember-me">
-                I have read the terms of service and privacy policy
+                I have read the <Link href="/terms-of-use">
+                  <a href="/terms-of-use" target="_blank" rel="noopener noreferrer">
+                    <span className="cursor-pointer py-2 px-1 text-black inline-block underline"> Terms of Use </span>
+                  </a>
+                </Link>
               </label>
             </div>
             <button

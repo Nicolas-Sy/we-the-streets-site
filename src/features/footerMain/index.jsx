@@ -82,7 +82,7 @@ export default function Footer() {
               </p>
             </div>
             <div className="md:flex-1 md:px-4 text-center md:text-right">
-              <Link href="/privacy-policy"><span className="cursor-pointer py-2 px-4 text-white inline-block hover:underline"> Terms of Use </span></Link>
+              <Link href="/terms-of-use"><span className="cursor-pointer py-2 px-4 text-white inline-block hover:underline"> Terms of Use </span></Link>
             </div>
           </div>
 

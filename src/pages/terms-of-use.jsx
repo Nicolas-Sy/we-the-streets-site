@@ -14,7 +14,7 @@ export default function Index() {
             <section className='container mx-auto px-5'>
                 <H1> Terms of Use and Privacy Policy </H1>
                 <br />
-                <P className="text-xl mb-2"> This terms of use and privacy policy will help you understand how the student researchers will use and
+                <P className="text-xl mb-2 mx-auto"> This terms of use and privacy policy will help you understand how the student researchers will use and
                     protect the data you provide to us when you visit and use Atlas. </P>
                 <br />
                 <H3 className="mb-2"> Overview</H3>
