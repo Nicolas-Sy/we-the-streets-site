@@ -82,6 +82,12 @@ export default function Index() {
                 <P> If you have already agreed to share your information with us, feel free to contact us via email, or through our social
                     media accounts, and we will be more than happy to change this for you.</P>
                 <br />
+                <H3 className="mb-2"> Contact</H3>
+                <P> At some point, you might wish to restrict the use and collection of your personal data.
+                    You can achieve this by doing the following:</P>
+                <P> If you have already agreed to share your information with us, feel free to contact us via email, or through our social
+                    media accounts, and we will be more than happy to change this for you.</P>
+                <br />
                 <br />
             </section>
         </Page>
