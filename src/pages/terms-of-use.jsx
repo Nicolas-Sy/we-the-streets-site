@@ -20,7 +20,7 @@ export default function Index() {
                     <br />
                     <H3 className="mb-2"> Overview</H3>
                     <P> Greetings! We are Nicolas Sy, Rafael Topacio, Lynux Ansay and Henric Tay. We are currently working on
-                        our undergraduate thesis titled "Using Remote Sensing to track Sidewalk Accessibility Issues to improve Urban Planning". In this
+                        our undergraduate thesis titled &quot;Using Remote Sensing to track Sidewalk Accessibility Issues to improve Urban Planning&quot;. In this
                         study, we want to determine the accessibility of sidewalks by giving them scores based on a certain criteria. With this, we can map
                         out the accessibility of sidewalks in the Philippines and allow for evidence-based solutions and policies in the future. </P>
                     <br />
@@ -30,7 +30,7 @@ export default function Index() {
                         prepared. </P>
                     <br />
                     <H3 className="mb-2"> Procedure</H3>
-                    <P> Register to Atlas through the “Contribute” Page, and provide the following:</P>
+                    <P> Register to Atlas through the &quot;Contribute&quot; Page, and provide the following:</P>
                     <div className="mx-5">
                         <P> •	Username </P>
                         <P> •	Email address </P>
