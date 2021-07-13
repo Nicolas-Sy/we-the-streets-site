@@ -87,9 +87,7 @@ export default class AnnotatePage extends React.Component {
         description="Contribute to Atlas! Let's make our streets accessible for all."
         contribute
       >
-        <section className="container px-5 mx-auto">
-          {renderComponent()}
-        </section>
+        {renderComponent()}
       </Page>
     );
   }

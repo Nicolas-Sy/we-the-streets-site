@@ -3,7 +3,7 @@ import Link from "next/link";
 import { signOut } from "next-auth/client";
 
 import Logo from "@/ui/logo";
-import OutlineButton from "ui/buttons/buttonOutline";
+import SolidButton from "ui/buttons/buttonSolid";
 import styles from "./styles.module.css";
 
 export default function Nav() {
@@ -44,7 +44,7 @@ export default function Nav() {
         </a>
       </div>
       <div ref={wrapperRef} className="flex flex-grow align-middle justify-end">
-        <OutlineButton
+        <SolidButton
           onClick={() => menuToggle()}
           className={`mr-2 md:mr-5 pt-4 z-10 hover:bg-red-500 hover:text-white border-red-500 ${
             menuState
@@ -53,11 +53,11 @@ export default function Nav() {
           }`}
         >
           Menu
-        </OutlineButton>
+        </SolidButton>
         <div
           className={
             menuState
-              ? "transition-all duration-300 ease-in-out absolute mt-16 mr-5 w-32 z-20 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+              ? "transition-all duration-300 ease-in-out absolute mt-16 mr-5 cursor-default w-32 z-20 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
               : "absolute opacity-0 left-0 h-0 w-0 cursor-default z-0"
           }
         >

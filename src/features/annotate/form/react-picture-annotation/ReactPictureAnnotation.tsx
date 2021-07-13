@@ -14,6 +14,7 @@ import {
   RectShape,
 } from "./Shape";
 import Transformer, { ITransformer } from "./Transformer";
+import P from "ui/heading/p";
 import H2 from "ui/heading/h2";
 import H3 from "ui/heading/h3";
 import SolidButton from "ui/buttons/buttonSolid";
@@ -199,12 +200,12 @@ export default class ReactPictureAnnotation extends React.Component<IReactPictur
           {" "}
           <span>Step 1: Identify Obstruction</span>
         </H2>
-        {/* <p>
+        <P className="my-4">
           Identify Obstruction of the sidewalk found in the image by clicking
           the white boxes or drawing your own.
-        </p> */}
+        </P>
         {/* Annotation Tool */}
-        <div className="rp-container flex flex-row border border-black flex-wrap">
+        <div className="rp-container">
           <div className="rp-stage">
             <canvas
               style={{ width, height }}
@@ -239,7 +240,7 @@ export default class ReactPictureAnnotation extends React.Component<IReactPictur
             )}
           </div>
           <div className="rp-annotations">
-            <div>
+            <div className="rp-annotations-list">
               <H3 className>
                 <span className="text-2xl">Selected Obstructions</span>
               </H3>
@@ -249,13 +250,13 @@ export default class ReactPictureAnnotation extends React.Component<IReactPictur
                   that you think is an obstruction in the sidewalk
                 </p>
               </div>
-              <ul className="overflow-y-scroll">
+              <ul>
                 {this.currentAnnotationData
                   .sort((a, b) => a.id.localeCompare(b.id))
                   .map((data) => {
                     if (!data.editable && data.selected) {
                       return (
-                        <li className="flex flex-row ml-5">
+                        <li className="flex flex-row ml-5" key={data.id}>
                           <p>
                             <a
                               className="cursor-pointer transition ease-in-out duration-300 hover:bg-red-700 px-2 py-1 "
@@ -287,7 +288,7 @@ export default class ReactPictureAnnotation extends React.Component<IReactPictur
                   })}
               </ul>
             </div>
-            <div>
+            <div className="rp-annotations-list">
               <H3 className>
                 {" "}
                 <span className="text-2xl">New Obstructions</span>
@@ -299,7 +300,7 @@ export default class ReactPictureAnnotation extends React.Component<IReactPictur
                   to the bottom right.
                 </p>
               </div>
-              <ul className="overflow-y-scroll">
+              <ul>
                 {this.currentAnnotationData
                   .sort((a, b) => a.id.localeCompare(b.id))
                   .map((data) => {
@@ -315,6 +316,7 @@ export default class ReactPictureAnnotation extends React.Component<IReactPictur
                             );
                             this.currentAnnotationState.onMouseUp();
                           }}
+                          key={data.id}
                         >
                           <p>
                             <a
@@ -356,9 +358,9 @@ export default class ReactPictureAnnotation extends React.Component<IReactPictur
           <H2 className="annotation-step-text">
             <span>Step 2: Rate Sidewalk Accessibility</span>
           </H2>
-          <p className="pt-10">
+          <P className="my-4">
             Rate the accessibility of the sidewalk found in the image.
-          </p>
+          </P>
           <div className="slider-forms">
             <div style={{ marginRight: "2rem" }}>
               <fieldset>
@@ -398,7 +400,6 @@ export default class ReactPictureAnnotation extends React.Component<IReactPictur
               </fieldset>
             </div>
             <div>
-              <h3>Accessibility Rating: {sliderValue}</h3>
               <p>{this.sliderValueText(sliderValue)}</p>
             </div>
           </div>
@@ -408,10 +409,10 @@ export default class ReactPictureAnnotation extends React.Component<IReactPictur
             <H2 className="annotation-step-text">
               <span>Step 3: Choose the Surface Type</span>
             </H2>
-            <p className="my-5">
+            <P className="my-4">
               Choose the surface type that best describes the sidewalk found in
               the image.
-            </p>
+            </P>
             <fieldset className="grouped_radio">
               <label className="radio-control" htmlFor="tactile_paving">
                 <p className="radio-label">Textured Surface</p>
@@ -493,12 +494,6 @@ export default class ReactPictureAnnotation extends React.Component<IReactPictur
   private submit = async () => {
     // isLoading(true);
 
-    // window.localStorage.setItem(
-    //   "annotationCurrentCount",
-    //   JSON.stringify(this.props.currentAnnotationCount + 1)
-    // );
-    // Router.reload();
-    // window.scrollTo(0, 0);
     const username = this.props.username;
     const selectedObjects = this.currentAnnotationData.filter(
       (element) => !element.editable && element.selected
@@ -835,29 +830,37 @@ export default class ReactPictureAnnotation extends React.Component<IReactPictur
   };
 
   private sliderValueText = (sliderValue) => {
-    switch (sliderValue) {
-      case 1:
-        return "This sidewalk is completely unsafe and inaccessible for both abled pedestrians and PWPDs";
-      case 2:
-        return "This sidewalk is very unsafe for all pedestrians";
-      case 3:
-        return "This sidewalk is inconvenient for all pedestrians";
-      case 4:
-        return "This sidewalk is nearly acceptable for all pedestrians";
-      case 5:
-        return "This sidewalk is adequate for all pedestrians ";
-      case 6:
-        return "This sidewalk is unsafe for PWPDs ";
-      case 7:
-        return "This sidewalk is inconvenient for PWPDs";
-      case 8:
-        return "This sidewalk is accessible and safe for PWPDs";
-      case 9:
-        return "This sidewalk only has minor issues for PWPDs";
-      case 10:
-        return "This sidewalk has no accessibility nor safety issues for both abled pedestrians and PWPDs";
-      default:
-        return "Sidewalk Accessibility is inclusive to people with disabilities. ";
-    }
+    //   switch (sliderValue) {
+    //     case 1:
+    //       return "This sidewalk is completely unsafe and inaccessible for both abled pedestrians and PWPDs";
+    //     case 2:
+    //       return "This sidewalk is very unsafe for all pedestrians";
+    //     case 3:
+    //       return "This sidewalk is inconvenient for all pedestrians";
+    //     case 4:
+    //       return "This sidewalk is nearly acceptable for all pedestrians";
+    //     case 5:
+    //       return "This sidewalk is adequate for all pedestrians ";
+    //     case 6:
+    //       return "This sidewalk is unsafe for PWPDs ";
+    //     case 7:
+    //       return "This sidewalk is inconvenient for PWPDs";
+    //     case 8:
+    //       return "This sidewalk is accessible and safe for PWPDs";
+    //     case 9:
+    //       return "This sidewalk only has minor issues for PWPDs";
+    //     case 10:
+    //       return "This sidewalk has no accessibility nor safety issues for both abled pedestrians and PWPDs";
+    //     default:
+    //       return "Sidewalk Accessibility is inclusive to people with disabilities. ";
+    //   }
+    // };
+    // Rate the sidewalk found on the image based on your understanding of sidewalk accessibility.
+    // A score of 1 means that there is no sidewalk or the sidewalk in the image is completely unsafe
+    // and inaccessible for both abled pedestrians and persons with physical disabilities. On the other
+    // hand, a score of 10 means that the sidewalk has no accessibility nor safety issues for both abled pedestrians and PWPDs
+    const message =
+      "Rate the sidewalk found on the image based on your understanding of sidewalk accessibility. A score of 1 means that there is no sidewalk or the sidewalk in the image is completely unsafe and inaccessible for both abled pedestrians and persons with physical disabilities (PWPDs). On the other hand, a score of 10 means that the sidewalk has no accessibility nor safety issues for both abled pedestrians and PWPDs";
+    return message;
   };
 }

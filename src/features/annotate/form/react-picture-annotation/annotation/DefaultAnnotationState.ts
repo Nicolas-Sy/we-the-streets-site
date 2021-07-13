@@ -80,8 +80,6 @@ export class DefaultAnnotationState implements IAnnotationState {
           transformerBackground: "#5c7cfa",
           transformerSize: 10,
         }
-
-        // this.context.annotationStyle
       )
     );
 

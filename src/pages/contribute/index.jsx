@@ -6,7 +6,6 @@ import H1 from "@/ui/heading/h1";
 import H2 from "@/ui/heading/h2";
 import H3 from "@/ui/heading/h3";
 import P from "ui/heading/p";
-import SolidButton from "ui/buttons/buttonSolid";
 import OutlineButton from "ui/buttons/buttonOutline";
 import Tooltip from "ui/tooltip";
 
@@ -28,9 +27,9 @@ export default function ContributePage() {
               <OutlineButton className="mr-5 border hover:border-black">
                 <Link href="/contribute/help">Annotation Guide</Link>
               </OutlineButton>
-              <SolidButton>
+              <button className="bg-red-600 transition-all bg-transparent hover:text-gray-800 font-semibold text-white hover:bg-red-700 py-2 px-4 border border-red-600 rounded duration-500 ease-in-out">
                 <Link href="/contribute/annotate">Start Annotating</Link>
-              </SolidButton>
+              </button>
             </div>
           </div>
         </div>

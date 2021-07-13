@@ -7,6 +7,7 @@ export default class DraggingAnnotationState implements IAnnotationState {
   constructor(context: ReactPictureAnnotation) {
     this.context = context;
   }
+
   public onMouseDown = () => undefined;
   public onMouseMove = (positionX: number, positionY: number) => {
     const { shapes } = this.context;

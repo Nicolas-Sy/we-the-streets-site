@@ -10,8 +10,8 @@ export default function AnnotateForm({ data, current, total }) {
   if (typeof window !== "undefined" && loading) return null;
 
   return (
-    <div>
-      <H1 className>
+    <div className="px-5">
+      <H1>
         <span className="text-2xl uppercase font-thin">
           Currently Annotating:
         </span>

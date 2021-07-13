@@ -1,5 +1,6 @@
 import { IAnnotation } from "./Annotation";
 
+// eslint-disable-next-line no-use-before-define
 export const defaultShapeStyle: IShapeStyle = {
   padding: 5,
   lineWidth: 2,
@@ -133,8 +134,6 @@ export class RectShape implements IShape {
       lineWidth,
       shadowBlur,
       fontSize,
-      fontColor,
-      fontBackground,
       fontFamily,
       shapeBackground,
       shapeStrokeStyle,

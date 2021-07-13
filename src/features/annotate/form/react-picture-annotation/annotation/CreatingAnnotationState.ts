@@ -8,6 +8,7 @@ export default class CreatingAnnotationState implements IAnnotationState {
   constructor(context: ReactPictureAnnotation) {
     this.context = context;
   }
+
   public onMouseDown = () => undefined;
   public onMouseMove = (positionX: number, positionY: number) => {
     const { shapes } = this.context;
@@ -32,6 +33,8 @@ export default class CreatingAnnotationState implements IAnnotationState {
       data.getAnnotationData().mark.height !== 0
     ) {
       shapes.push(data);
+      this.context.selectedId = data.getAnnotationData().id;
+      console.log(data.getAnnotationData().id);
     } else {
       if (data && this.applyDefaultAnnotationSize(data)) {
         shapes.push(data);
