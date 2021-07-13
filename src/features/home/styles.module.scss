@@ -1,6 +1,6 @@
 .card {
   width: 300px;
-  //   border: solid black 1px;
+  #border: solid black 1px;
   margin: 1rem;
   margin-left: -2rem;
   text-align: justify;
@@ -10,6 +10,7 @@
       padding: 0.3rem;
       margin-right: 0.4rem;
       color: white;
+      border-radius: 10px;
     }
     :nth-child(2) {
       text-decoration: underline;

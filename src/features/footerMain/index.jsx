@@ -35,7 +35,7 @@ export default function Footer() {
                 Email
               </a>
 
-              <a className={styles.button} href="https://github.com/" target="_blank" rel="noreferrer">
+              <a className={styles.button} href="https://github.com/Nicolas-Sy/we-the-streets-site" target="_blank" rel="noreferrer">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="1.5rem"
@@ -50,7 +50,7 @@ export default function Footer() {
                 </svg>
                 Github
               </a>
-              <a className={styles.button} href="https://www.overleaf.com/" target="_blank" rel="noreferrer">
+              <a className={styles.button} href="https://drive.google.com/file/d/1Ucw9Kz9emJ33nqZ7Ixbz9rignlKmRxJo/view?usp=sharing" target="_blank" rel="noreferrer">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="1.5rem"
@@ -82,8 +82,7 @@ export default function Footer() {
               </p>
             </div>
             <div className="md:flex-1 md:px-4 text-center md:text-right">
-              <Link href="/terms-of-service" className="py-2 px-4 text-white inline-block hover:underline">Terms of Service</Link>
-              <Link href="/privacy-policy" className="py-2 px-4 text-white inline-block hover:underline">Privacy Policy</Link>
+              <Link href="/terms-of-use"><span className="cursor-pointer py-2 px-4 text-white inline-block hover:underline"> Terms of Use </span></Link>
             </div>
           </div>
 

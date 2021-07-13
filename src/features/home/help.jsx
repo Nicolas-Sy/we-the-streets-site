@@ -12,26 +12,26 @@ export default function Help() {
   const [passed1, setPassed1] = useState(true);
   const ref = useRef(null);
 
-  
 
- 
+
+
 
   useEffect(() => {
     // window.addEventListener('scroll', handleScroll);
     // return () => window.removeEventListener('scroll', handleScroll);
     const callbackFunction = (entries) => {
       const [entry] = entries;
-  
-        if (isVisible) {
+
+      if (isVisible) {
         setPassed1(false);
         setPassed(true);
       }
-  
+
       if (!passed1 && !isVisible) {
         setPassed(false);
         setPassed1(true);
       }
-  
+
       setIsVisible(entry.isIntersecting || (passed && passed1));
     };
     const options = {
@@ -54,7 +54,7 @@ export default function Help() {
     <section className="container mx-auto py-5 px-5">
       <div>
         <H2 className="text-center">How can you help?</H2>
-        <P className="text-center py-5">
+        <P className="text-center py-5 mx-20">
           You must first sign up for our platform so that we can track the
           volunteers that are using the platform. No need to worry since we
           will not be collecting any personal identifiable information (PII)
