@@ -414,13 +414,13 @@ export default class ReactPictureAnnotation extends React.Component<IReactPictur
               the image.
             </P>
             <fieldset className="grouped_radio">
-              <label className="radio-control" htmlFor="tactile_paving">
-                <p className="radio-label">Textured Surface</p>
+              <label className="radio-control" htmlFor="smooth_paving">
+                <p className="radio-label">Smooth Surface</p>
                 <input
                   type="radio"
                   name="radio1"
-                  id="tactile_paving"
-                  value="tactile_paving"
+                  id="smooth_paving"
+                  value="smooth_paving"
                   onChange={(e) => {
                     this.setState({
                       ...this.state,
@@ -428,7 +428,7 @@ export default class ReactPictureAnnotation extends React.Component<IReactPictur
                     });
                   }}
                 />
-                <img src="/images/annotationTool/tactile_paving.jpg"></img>
+                <img src="/images/annotationTool/smooth_paving.png"></img>
               </label>
               <label className="radio-control" htmlFor="rough_paving">
                 <p className="radio-label">Rough Surface</p>
@@ -444,7 +444,7 @@ export default class ReactPictureAnnotation extends React.Component<IReactPictur
                     });
                   }}
                 />
-                <img src="/images/annotationTool/cement.jpg"></img>
+                <img src="/images/annotationTool/rough_paving.jpg"></img>
               </label>
               <label className="radio-control" htmlFor="slippery_paving">
                 <p className="radio-label">Tile/Slippery Surface</p>
@@ -476,7 +476,7 @@ export default class ReactPictureAnnotation extends React.Component<IReactPictur
                     });
                   }}
                 />
-                <img src="/images/annotationTool/tile_slippery_sidewalk.jpg"></img>
+                <img src="/images/annotationTool/no_sidewalk.png"></img>
               </label>
             </fieldset>
           </div>
