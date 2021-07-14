@@ -28,11 +28,9 @@ export default function HelpDirectory() {
         <div>
           <P className="mb-2">If you see an obstruction on the image that <b>does not have a bounding box around it yet</b>, it's time to label it as an <u>obstruction</u>!</P>
           <P> 1. Point your mouse on the obstruction.</P>
-          <P> 2. Click and drag to draw a bounding box around it. </P>
-          <P> 3. Click the box (we can make this automatic na). </P>
-          <P> 4. Select the type of object among the selection list. </P>
-          <P> 5. Click the "check mark" icon to confirm your action, otherwise click the "trash bin" icon to delete your action. </P>
-          <P className="mb-2"> 6. The new obstruction will appear on the "New Obstructions" list.</P>
+          <P> 2. Click and drag to draw a bounding box around it, then select the type of object among the selection list. </P>
+          <P> 3. Click the "check mark" icon to confirm your action, otherwise click the "trash bin" icon to delete your action. </P>
+          <P className="mb-2"> 4. The new obstruction will appear on the "New Obstructions" list.</P>
           <P> <b> Note: </b>We have limited objects among the options, as these are the objects that can be commonly found along
             Philippine sidewalks. If the object that you are about to label is not on the list, please do not label it anymore. </P>
         </div>
