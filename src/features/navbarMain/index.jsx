@@ -18,6 +18,9 @@ export default function Nav() {
             <NavLink href="/about">About</NavLink>
           </li>
           <li className="mr-2 md:mr-5 pt-4">
+            <NavLink href="/demo">Demo</NavLink>
+          </li>
+          <li className="mr-2 md:mr-5 pt-4">
             <NavLink href="/contribute">Contribute</NavLink>
           </li>
         </ul>
