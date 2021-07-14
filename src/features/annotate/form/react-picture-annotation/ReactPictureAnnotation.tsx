@@ -17,7 +17,6 @@ import Transformer, { ITransformer } from "./Transformer";
 import P from "ui/heading/p";
 import H2 from "ui/heading/h2";
 import H3 from "ui/heading/h3";
-import SolidButton from "ui/buttons/buttonSolid";
 
 interface IReactPictureAnnotationProps {
   annotationData?: IAnnotation[];
@@ -93,7 +92,7 @@ export default class ReactPictureAnnotation extends React.Component<IReactPictur
     editable: false,
     selected: false,
     sliderValue: 5,
-    pavementType: "no_sidewalk",
+    pavementType: "",
   };
 
   set selectedId(value: string | null) {
@@ -201,8 +200,21 @@ export default class ReactPictureAnnotation extends React.Component<IReactPictur
           <span>Step 1: Identify Obstruction</span>
         </H2>
         <P className="my-4">
-          Identify Obstruction of the sidewalk found in the image by clicking
-          the white boxes or drawing your own.
+          In this step, we want to identify objects{" "}
+          <span className="font-bold">only on the sidewalk surface. </span>
+          Please{" "}
+          <span className="font-bold">
+            click on the white boxes and select yes{" "}
+          </span>
+          that you think are blocking the sidewalk. If there are other objects
+          in the sidewalk that you think are an obstruction,{" "}
+          <span className="font-bold">draw a box and label the object </span>by
+          clicking and dragging your mouse from the top left to the bottom
+          right.{" "}
+          <span className="font-bold">
+            If there are no obstructions on the sidewalk, feel free to move
+            forward to the next step.
+          </span>
         </P>
         {/* Annotation Tool */}
         <div className="rp-container">
@@ -246,8 +258,8 @@ export default class ReactPictureAnnotation extends React.Component<IReactPictur
               </H3>
               <div className="annotation-instruction">
                 <p>
-                  Click the white boxes on the image to select an obstruction
-                  that you think is an obstruction in the sidewalk
+                  These are the objects you identified to be a sidewalk
+                  obstruction.
                 </p>
               </div>
               <ul>
@@ -277,7 +289,7 @@ export default class ReactPictureAnnotation extends React.Component<IReactPictur
                                 this.currentAnnotationState.onMouseUp();
                               }}
                             >
-                              {data.comment.replace("_", " ")}
+                              {data.comment.replaceAll("_", " ")}
                             </span>
                           </p>
                         </li>
@@ -294,11 +306,7 @@ export default class ReactPictureAnnotation extends React.Component<IReactPictur
                 <span className="text-2xl">New Obstructions</span>
               </H3>
               <div className="annotation-instruction">
-                <p>
-                  If you find a new obstruction that we have not selected.
-                  Select the object by dragging from the top left of the object
-                  to the bottom right.
-                </p>
+                <p>These are the objects that you have drawn yourself.</p>
               </div>
               <ul>
                 {this.currentAnnotationData
@@ -338,7 +346,9 @@ export default class ReactPictureAnnotation extends React.Component<IReactPictur
                                 this.currentAnnotationState.onMouseUp();
                               }}
                             >
-                              {data.comment}
+                              {data.comment !== undefined
+                                ? data.comment.replaceAll("_", " ")
+                                : "Select Option"}
                             </span>
                           </p>
                         </li>
@@ -359,10 +369,16 @@ export default class ReactPictureAnnotation extends React.Component<IReactPictur
             <span>Step 2: Rate Sidewalk Accessibility</span>
           </H2>
           <P className="my-4">
-            Rate the accessibility of the sidewalk found in the image.
+            In this step, please rate the sidewalk accessibility based on your
+            understanding of sidewalk accessibility. A score of 1 means that
+            there is no sidewalk or the sidewalk in the image is completely
+            unsafe and inaccessible for both abled pedestrians and persons with
+            physical disabilities (PWPDs). On the other hand, a score of 10
+            means that the sidewalk has no accessibility nor safety issues for
+            both abled pedestrians and PWPDs
           </P>
           <div className="slider-forms">
-            <div style={{ marginRight: "2rem" }}>
+            <div className="slider-div">
               <fieldset>
                 <div className="rp-slider">
                   <span className="range-slider-value" id="slider-value">
@@ -399,8 +415,9 @@ export default class ReactPictureAnnotation extends React.Component<IReactPictur
                 </div>
               </fieldset>
             </div>
-            <div>
-              <p>{this.sliderValueText(sliderValue)}</p>
+            <div className="slider-description">
+              <p className="text-xl">Dangerous and inaccessible</p>
+              <p className="text-xl">Safe and accessible even for PWD&apos;s</p>
             </div>
           </div>
           {/* Radio Form */}
@@ -410,8 +427,8 @@ export default class ReactPictureAnnotation extends React.Component<IReactPictur
               <span>Step 3: Choose the Surface Type</span>
             </H2>
             <P className="my-4">
-              Choose the surface type that best describes the sidewalk found in
-              the image.
+              Lastly, please choose the surface type that best describes the
+              sidewalk found in the image.
             </P>
             <fieldset className="grouped_radio">
               <label className="radio-control" htmlFor="smooth_paving">
@@ -479,12 +496,19 @@ export default class ReactPictureAnnotation extends React.Component<IReactPictur
                 <img src="/images/annotationTool/no_sidewalk.png"></img>
               </label>
             </fieldset>
+            <p className="text-center mt-10">
+              {this.surfaceTypeText(this.state.pavementType)}
+            </p>
           </div>
 
           <div className="flex justify-center my-12">
-            <SolidButton className submit onClick={this.submit}>
+            <button
+              className="annotation-submit-btn border duration-100 transition-all ease-in-out shadow-lg hover:shadow-sm"
+              type="submit"
+              onClick={this.submit}
+            >
               Submit
-            </SolidButton>
+            </button>
           </div>
         </div>
       </section>
@@ -827,6 +851,27 @@ export default class ReactPictureAnnotation extends React.Component<IReactPictur
 
   private onMouseLeave: MouseEventHandler<HTMLCanvasElement> = () => {
     this.currentAnnotationState.onMouseLeave();
+  };
+
+  public onMouseDownHack(positionX, positionY) {
+    console.log("simulate click");
+    this.currentAnnotationState.onMouseUp();
+    this.currentAnnotationState.onMouseDown(positionX, positionY);
+    this.currentAnnotationState.onMouseUp();
+  }
+
+  private surfaceTypeText = (surfaceType) => {
+    switch (surfaceType) {
+      case "no_sidewalk":
+        return "There is no sidewalk found in the image.";
+      case "rough_paving":
+        return "Rough surfaces are craggy, irregular, and are usually broken in various spots on the surface";
+      case "smooth_paving":
+        return "Smooth surfaces are evenly balanced, made of solid material, and do not contain any cracks or irregularities";
+      case "slippery_paving":
+        return "Tiled/Slippery surfaces are put together using different segments of flooring and become hazardous and slippery when wet.";
+    }
+    return "";
   };
 
   private sliderValueText = (sliderValue) => {

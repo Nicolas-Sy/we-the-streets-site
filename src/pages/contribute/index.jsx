@@ -27,7 +27,7 @@ export default function ContributePage() {
               <OutlineButton className="mr-5 border hover:border-black">
                 <Link href="/contribute/help">Annotation Guide</Link>
               </OutlineButton>
-              <button className="bg-red-600 transition-all bg-transparent hover:text-gray-800 font-semibold text-white hover:bg-red-700 py-2 px-4 border border-red-600 rounded duration-500 ease-in-out">
+              <button className="bg-red-600 transition-all font-semibold text-white hover:bg-red-700 py-2 px-4 border border-red-600 rounded duration-500 ease-in-out">
                 <Link href="/contribute/annotate">Start Annotating</Link>
               </button>
             </div>

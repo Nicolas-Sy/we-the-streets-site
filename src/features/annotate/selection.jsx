@@ -1,7 +1,6 @@
 import { useRouter } from "next/router";
 
 import H2 from "ui/heading/h2";
-import OutlineButton from "ui/buttons/buttonOutline";
 
 export default function AnnotationSessionSelection() {
   const router = useRouter();
@@ -31,39 +30,46 @@ export default function AnnotationSessionSelection() {
       <section className="pb-12 mt-12">
         <div className="flex flex-col border px-12 py-12 my-5 rounded-md shadow-xl mb-64">
           <H2>How many annotations do you want to do for this session?</H2>
+          <p className="mt-4 text-gray-800 pr-20">
+            Each image takes, on average, around 1 minute to accomplish. In each
+            image you want to annotate, you will be required to identify
+            obstructions, rate sidewalk accessibility, and identify the surface
+            type. Click on the buttons below on how many images you are willing
+            to annotate for the session.{" "}
+          </p>
           <hr className="mt-4" />
           <div className="flex flex-wrap justify-center">
             <div className="px-4 mt-4">
-              <OutlineButton
-                className="hover:text-white hover:bg-gray-800 text-5xl shadow-md"
+              <button
+                className="bg-red-600 text-white py-5 px-5 transition-all duration-300 ease-in-out rounded-md border-black hover:text-white hover:bg-gray-800 text-5xl shadow-lg"
                 onClick={() => setAnnotationSession(5)}
               >
                 05
-              </OutlineButton>
+              </button>
             </div>
             <div className="px-4 mt-4">
-              <OutlineButton
-                className="hover:text-white hover:bg-gray-800 text-5xl shadow-md"
+              <button
+                className="bg-red-600 text-white py-5 px-5 transition-all duration-300 ease-in-out rounded-md border-black hover:text-white hover:bg-gray-800 text-5xl shadow-lg"
                 onClick={() => setAnnotationSession(10)}
               >
                 10
-              </OutlineButton>
+              </button>
             </div>
             <div className="px-4 mt-4">
-              <OutlineButton
-                className="hover:text-white hover:bg-gray-800 text-5xl shadow-md"
+              <button
+                className="bg-red-600 text-white py-5 px-5 transition-all duration-300 ease-in-out rounded-md border-black hover:text-white hover:bg-gray-800 text-5xl shadow-lg"
                 onClick={() => setAnnotationSession(15)}
               >
                 15
-              </OutlineButton>
+              </button>
             </div>
             <div className="px-4 mt-4">
-              <OutlineButton
-                className="hover:text-white hover:bg-gray-800 text-5xl shadow-md"
+              <button
+                className="bg-red-600 text-white py-5 px-5 transition-all duration-300 ease-in-out rounded-md border-black hover:text-white hover:bg-gray-800 text-5xl shadow-lg"
                 onClick={() => setAnnotationSession(20)}
               >
                 20
-              </OutlineButton>
+              </button>
             </div>
           </div>
         </div>

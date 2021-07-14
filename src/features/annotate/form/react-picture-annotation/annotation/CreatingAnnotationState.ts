@@ -27,6 +27,7 @@ export default class CreatingAnnotationState implements IAnnotationState {
   public onMouseUp = () => {
     const { shapes, onShapeChange, setAnnotationState } = this.context;
     const data = shapes.pop();
+    let makeNewBox = false;
     if (
       data &&
       data.getAnnotationData().mark.width !== 0 &&
@@ -35,6 +36,7 @@ export default class CreatingAnnotationState implements IAnnotationState {
       shapes.push(data);
       this.context.selectedId = data.getAnnotationData().id;
       console.log(data.getAnnotationData().id);
+      makeNewBox = true;
     } else {
       if (data && this.applyDefaultAnnotationSize(data)) {
         shapes.push(data);
@@ -45,6 +47,12 @@ export default class CreatingAnnotationState implements IAnnotationState {
       }
     }
     setAnnotationState(new DefaultAnnotationState(this.context));
+    if (makeNewBox) {
+      this.context.onMouseDownHack(
+        data.getAnnotationData().mark.x + 1,
+        data.getAnnotationData().mark.y + 1
+      );
+    }
   };
 
   private applyDefaultAnnotationSize = (shape: IShape) => {
