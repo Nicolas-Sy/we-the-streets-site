@@ -198,7 +198,7 @@ export default function register({ providers, csrfToken }) {
           />
           <fieldset className="border-0 mb-4">
             <legend className="block mb-2 font-bold">
-              Do you use the following mobility aids?
+              Do you use the following mobility aids? If not, do not check any of the boxes.
             </legend>
             <label className="block text-gray-700 font-bold mb-2">
               <input
