@@ -73,9 +73,9 @@ export default function login({ providers, csrfToken }) {
             )}
             <div className="flex items-center">
               <div className="w-2/3 flex items-center">
-                <a className="text-sm font-bold text-teal-500 hover:underline cursor-pointer">
+                {/* <a className="text-sm font-bold text-teal-500 hover:underline cursor-pointer">
                   Forgot your password?
-                </a>
+                </a> */}
               </div>
               <button
                 className="ml-auto w-1/3 bg-gray-800 text-white p-2 rounded font-semibold hover:bg-gray-900"
@@ -89,7 +89,7 @@ export default function login({ providers, csrfToken }) {
         <div className="flex justify-center w-10/12 sm:w-8/12 md:w-6/12 lg:w-5/12 xl:w-4/12">
           <p className="font-semibold text-gray-600 text-sm">
             If you&apos;re experiencing problems logging in to your account
-            please contact us at:
+            please contact us at: wethestreetsdlsu@gmail.com
           </p>
         </div>
       </section>

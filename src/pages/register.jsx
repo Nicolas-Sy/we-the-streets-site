@@ -72,7 +72,7 @@ export default function register({ providers, csrfToken }) {
           password,
           // The page where you want to redirect to after a
           // successful login
-          callbackUrl: `${window.location.origin}/contribute`,
+          callbackUrl: `${window.location.origin}/contribute/help`,
         });
         console.log("success");
       } else if (res.status === 400) {
@@ -251,7 +251,8 @@ export default function register({ providers, csrfToken }) {
           </fieldset>
           <fieldset className="border-0 mb-4">
             <legend className="block text-gray-700 mb-2 font-bold">
-              How often do you commute in a public utility vehicle? (Pre-pandemic)
+              How often do you commute in a public utility vehicle?
+              (Pre-pandemic)
             </legend>
             <label className="block text-gray-700 font-bold mb-2">
               <input
@@ -313,9 +314,17 @@ export default function register({ providers, csrfToken }) {
                 required
               />
               <label htmlFor="remember-me">
-                I have read the <Link href="/terms-of-use">
-                  <a href="/terms-of-use" target="_blank" rel="noopener noreferrer">
-                    <span className="cursor-pointer py-2 px-0 text-black inline-block underline"> Terms of Use </span>
+                I have read the{" "}
+                <Link href="/terms-of-use">
+                  <a
+                    href="/terms-of-use"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span className="cursor-pointer py-2 px-0 text-black inline-block underline">
+                      {" "}
+                      Terms of Use{" "}
+                    </span>
                   </a>
                 </Link>
               </label>
