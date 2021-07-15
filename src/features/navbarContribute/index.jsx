@@ -9,6 +9,13 @@ import styles from "./styles.module.css";
 export default function Nav() {
   const [menuState, setMenuState] = useState(false);
 
+  const logoutFunction = () => {
+    window.localStorage.setItem("annotationTotalCount", null);
+    window.localStorage.setItem("annotationCurrentCount", null);
+    window.localStorage.setItem("annotationSetData", null);
+    signOut();
+  };
+
   const menuToggle = () => {
     setMenuState(!menuState);
   };
@@ -61,7 +68,7 @@ export default function Nav() {
               : "absolute opacity-0 left-0 h-0 w-0 cursor-default z-0"
           }
         >
-          <ul className={styles.ul}>
+          <ul className={`${styles.ul} ${menuState ? "block" : "hidden"}`}>
             <Link passHref href="/">
               <li>Home</li>
             </Link>
@@ -79,7 +86,7 @@ export default function Nav() {
             <button
               type="button"
               className="flex w-full"
-              onClick={() => signOut()}
+              onClick={() => logoutFunction()}
             >
               <li>Logout</li>
             </button>
