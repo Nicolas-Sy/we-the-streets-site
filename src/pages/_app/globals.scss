@@ -100,6 +100,7 @@
   flex-direction: column;
   background-color: black;
   padding: 10px 10px;
+  z-index: 100 !important;
   p {
     text-align: center;
     font-size: 16px;
@@ -145,7 +146,7 @@
       padding: 0.5rem 0.8rem;
       width: 100% !important;
       background: white;
-      z-index: 2;
+      // z-index: 2;
       font-size: 1.8rem;
     }
     &:after {
@@ -268,6 +269,7 @@
         margin: 0;
         margin-bottom: -1.6rem;
         text-align: center;
+        font-size: 1.2rem;
       }
       img {
         display: block;
@@ -275,7 +277,8 @@
         width: 200px;
         height: 200px;
         opacity: 0.8;
-        margin: auto;
+        margin-top: 0.4rem;
+        // margin: auto;
         // border-radius: 50%;
         border: 5px solid black;
         box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
@@ -302,37 +305,57 @@
   }
   .slider-forms {
     display: flex;
-    flex-direction: row;
-    .rp-slider {
-      margin: 1rem 0% 3rem 0%;
-      datalist {
-        display: flex;
-        width: 608px;
-        justify-content: space-between;
-        height: 1rem;
-        // background-color: red;
+    flex-direction: column;
+    margin: auto;
+    .slider-div {
+      display: block;
+      margin: auto;
+      fieldset {
+        .rp-slider {
+          margin: 1rem 0% 1rem 0%;
+          datalist {
+            display: flex;
+            width: 708px;
+            justify-content: space-between;
+            height: 1rem;
+            // background-color: red;
+          }
+          input {
+            width: 700px;
+            // -webkit-appearance: none;
+            height: 3px;
+            border-radius: 5px;
+            outline: none;
+            padding: 0;
+            margin: 0;
+          }
+        }
       }
-      input {
-        width: 600px;
-        // -webkit-appearance: none;
-        height: 3px;
-        border-radius: 5px;
-        outline: none;
-        padding: 0;
-        margin: 0;
+    }
+
+    .slider-description {
+      display: flex;
+      justify-content: space-between;
+      width: 940px;
+      margin-bottom: 3rem;
+      p {
+        max-width: 30vw;
+        font-size: 1.3rem;
+        font-weight: bold;
       }
     }
 
     .range-slider-value {
       display: block;
       position: relative;
-      width: 250px;
+      width: 300px;
       color: white;
       line-height: 20px;
       text-align: center;
       border-radius: 3px;
       background: black;
-      padding: 5px 10px;
+      padding: 10px 10px;
+      font-size: 1.2rem;
 
       // &:after {
       //   position: absolute;
@@ -351,6 +374,20 @@
   // button {
   //   margin: 20% 0% 1% 80%;
   // }
+}
+
+.annotation-submit-btn {
+  background-color: var(--c-accent);
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  transition: all 0.3s;
+  color: #02361e;
+  border-color: #0aa05a;
+  &:hover {
+    color: white;
+    background-color: #0aa05a;
+  }
 }
 
 .gifContainer{
