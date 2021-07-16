@@ -23,7 +23,7 @@ export default function HelpDirectory() {
           </div>
           <div className="mt-4 text-lg ml-0 lg:ml-16 xl:ml-32 2xl:ml-64">
             <P className="mb-2"> We classify "<u>obstructions</u>" as objects that <b>block the pathway</b> for a pedestrian to easily walk along the sidewalk. </P>
-            <P> 1. Click on a bounding box on the image.  </P>
+            <P> 1. Click on the white boxes that you think are blocking the sidewalk.  </P>
             <P> 2. If the object blocks the pathway of the sidewalk, select "Yes" as your option, otherwise select "No". </P>
             <P> 3. The object will appear on the "Selected Obstructions" list if you selected "Yes". </P>
           </div>
@@ -36,8 +36,8 @@ export default function HelpDirectory() {
           </div>
           <div className="mt-4 text-lg ml-0 lg:ml-16 xl:ml-32 2xl:ml-64">
             <P className="mb-2">If you see an obstruction on the image that <b>does not have a bounding box around it yet</b>, it's time to label it as an <u>obstruction</u>!</P>
-            <P> 1. Point your mouse on the obstruction.</P>
-            <P> 2. Click and drag to draw a bounding box around it, then select the type of object among the selection list. </P>
+            <P> 1. Draw a box around the obstruction by clicking and dragging your mouse from the top left to the bottom right. </P>
+            <P> 2. Select the type of object among the selection list. </P>
             <P> 3. Click the "check mark" icon to confirm your action, otherwise click the "trash bin" icon to delete your action. </P>
             <P className="mb-2"> 4. The new obstruction will appear on the "New Obstructions" list.</P>
             <P> <b> Note: </b>We have limited objects among the options, as these are the objects that can be commonly found along

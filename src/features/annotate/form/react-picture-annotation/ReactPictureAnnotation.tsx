@@ -199,20 +199,24 @@ export default class ReactPictureAnnotation extends React.Component<IReactPictur
           {" "}
           <span>Step 1: Identify Obstruction</span>
         </H2>
-        <P className="my-4">
+        <P className="my-4 mx-5">
           In this step, we want to identify objects{" "}
           <span className="font-bold">only on the sidewalk surface. </span>
           Please{" "}
           <span className="font-bold">
             click on the white boxes and select yes{" "}
           </span>
-          that you think are blocking the sidewalk. If there are other objects
+          if the object {" "}
+          <span className="font-bold">
+            blocks the pathway {" "}
+          </span>
+          for a pedestrian to easily walk along the sidewalk. If there are other objects
           in the sidewalk that you think are an obstruction,{" "}
           <span className="font-bold">draw a box and label the object </span>by
           clicking and dragging your mouse from the top left to the bottom
           right.{" "}
           <span className="font-bold">
-            If there are no obstructions on the sidewalk, or if there are no sidewalks on the image, feel free to move
+            If there are no obstructions on the sidewalk, or if there are no sidewalks found on the image, feel free to move
             forward to the next step.
           </span>
         </P>
@@ -368,7 +372,7 @@ export default class ReactPictureAnnotation extends React.Component<IReactPictur
           <H2 className="annotation-step-text">
             <span>Step 2: Rate Sidewalk Accessibility</span>
           </H2>
-          <P className="my-4">
+          <P className="my-4 mx-5">
             In this step, please rate the sidewalk accessibility based on your
             understanding of sidewalk accessibility. A score of 1 means that {" "}
             <span className="font-bold">
@@ -433,7 +437,7 @@ export default class ReactPictureAnnotation extends React.Component<IReactPictur
             <H2 className="annotation-step-text">
               <span>Step 3: Choose the Surface Type</span>
             </H2>
-            <P className="my-4">
+            <P className="my-4 mx-5">
               Lastly, please choose the surface type that best describes the
               sidewalk found in the image.
             </P>
