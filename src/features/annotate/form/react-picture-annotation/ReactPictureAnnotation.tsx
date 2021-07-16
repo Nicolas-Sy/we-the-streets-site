@@ -212,7 +212,7 @@ export default class ReactPictureAnnotation extends React.Component<IReactPictur
           clicking and dragging your mouse from the top left to the bottom
           right.{" "}
           <span className="font-bold">
-            If there are no obstructions on the sidewalk, feel free to move
+            If there are no obstructions on the sidewalk, or if there are no sidewalks on the image, feel free to move
             forward to the next step.
           </span>
         </P>
@@ -370,12 +370,19 @@ export default class ReactPictureAnnotation extends React.Component<IReactPictur
           </H2>
           <P className="my-4">
             In this step, please rate the sidewalk accessibility based on your
-            understanding of sidewalk accessibility. A score of 1 means that
-            there is no sidewalk or the sidewalk in the image is completely
-            unsafe and inaccessible for both abled pedestrians and persons with
-            physical disabilities (PWPDs). On the other hand, a score of 10
-            means that the sidewalk has no accessibility nor safety issues for
-            both abled pedestrians and PWPDs
+            understanding of sidewalk accessibility. A score of 1 means that {" "}
+            <span className="font-bold">
+              there is no sidewalk, or the sidewalk on the image is completely
+              unsafe and inaccessible for both abled pedestrians and persons with
+              physical disabilities (PWPDs).{" "}
+            </span>
+            On the other hand, a score of 10
+            means that {" "}
+            <span className="font-bold">
+              the sidewalk is safe and accessible for
+              both abled pedestrians and PWPDs.{" "}
+            </span>
+
           </P>
           <div className="slider-forms">
             <div className="slider-div">
