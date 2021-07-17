@@ -35,10 +35,12 @@ export default function ContributePage() {
         </div>
       </section>
 
+
       <section className="mt-4 pb-12 bg-gray-100">
         <hr />
+
         <div className="flex flex-col mx-auto md:flex-row container lg:max-w-7xl lg:w-4/5 ">
-          <div className="mx-auto sm:mx-0 md:w-2/5">
+          <div className="mx-auto sm:mx-0 md:w-2/5">{/*
             <div className="bg-white w-80 p-5 shadow-2xl border rounded-md -mt-16">
               <H3 className="mb-4">Your profile</H3>
               <P>
@@ -57,7 +59,7 @@ export default function ContributePage() {
           </div>
           <div className="mt-10 md:-mt-12 px-5 h-96">
             <H3>Recent Activity</H3>
-            <ul />
+          <ul />*/}
           </div>
         </div>
       </section>
