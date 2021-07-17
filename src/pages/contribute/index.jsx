@@ -7,12 +7,6 @@ import H2 from "@/ui/heading/h2";
 
 import OutlineButton from "ui/buttons/buttonOutline";
 
-{/* 
-import H3 from "@/ui/heading/h3";
-import P from "ui/heading/p";
-import Tooltip from "ui/tooltip";
-*/}
-
 export default function ContributePage() {
   const [session, loading] = useSession();
   if (typeof window !== "undefined" && loading) return null;
