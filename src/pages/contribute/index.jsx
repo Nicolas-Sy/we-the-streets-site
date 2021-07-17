@@ -4,10 +4,14 @@ import { getSession, useSession } from "next-auth/client";
 import Page from "@/ui/page";
 import H1 from "@/ui/heading/h1";
 import H2 from "@/ui/heading/h2";
+
+import OutlineButton from "ui/buttons/buttonOutline";
+
+{/* 
 import H3 from "@/ui/heading/h3";
 import P from "ui/heading/p";
-import OutlineButton from "ui/buttons/buttonOutline";
 import Tooltip from "ui/tooltip";
+*/}
 
 export default function ContributePage() {
   const [session, loading] = useSession();
