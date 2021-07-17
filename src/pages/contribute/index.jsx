@@ -4,7 +4,11 @@ import { getSession, useSession } from "next-auth/client";
 import Page from "@/ui/page";
 import H1 from "@/ui/heading/h1";
 import H2 from "@/ui/heading/h2";
-
+/* 
+import H3 from "@/ui/heading/h3";
+import P from "ui/heading/p";
+import Tooltip from "ui/tooltip";
+*/
 import OutlineButton from "ui/buttons/buttonOutline";
 
 export default function ContributePage() {
@@ -57,7 +61,7 @@ export default function ContributePage() {
           </div>
           <div className="mt-10 md:-mt-12 px-5 h-96">
             <H3>Recent Activity</H3>
-          <ul />*/}
+          <ul /> */}
           </div>
         </div>
       </section>
