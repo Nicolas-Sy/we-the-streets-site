@@ -15,6 +15,7 @@ export default class AnnotatePage extends React.Component {
       annotationTotalCount: null,
       annotationCurrentCount: null,
       annotationSetData: null,
+      username: "",
     };
   }
 
@@ -75,11 +76,12 @@ export default class AnnotatePage extends React.Component {
           <AnnotationDone
             data={this.state.annotationSetData}
             total={this.state.annotationTotalCount}
+            username={this.state.username}
           />
         );
       }
 
-      return <></>;
+      return <>Loading</>;
     };
     return (
       <Page

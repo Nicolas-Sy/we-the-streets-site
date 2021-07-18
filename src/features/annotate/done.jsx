@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { getSession, useSession } from "next-auth/client";
 
 import H2 from "ui/heading/h2";
 import H3 from "ui/heading/h3";
@@ -8,10 +9,27 @@ import P from "ui/heading/p";
 import SolidButton from "ui/buttons/buttonSolid";
 
 export default function AnnotationDone({ data, total }) {
+  const [session, loading] = useSession();
+  if (typeof window !== "undefined" && loading) return null;
+
   useEffect(() => {
     window.localStorage.setItem("annotationTotalCount", null);
     window.localStorage.setItem("annotationCurrentCount", null);
     window.localStorage.setItem("annotationSetData", null);
+
+    async function postActivity() {
+      await fetch("/api/userActivity", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          username: session.user.username,
+          date: new Date(),
+          tag: "Annotation Session Done",
+          activity: `You finished ${total} annotations`,
+        }),
+      });
+    }
+    postActivity();
   });
 
   const annotationData = data;
@@ -54,3 +72,10 @@ export default function AnnotationDone({ data, total }) {
     </section>
   );
 }
+
+AnnotationDone.getInitialProps = async (context) => {
+  const session = await getSession(context);
+  return {
+    props: { session },
+  };
+};

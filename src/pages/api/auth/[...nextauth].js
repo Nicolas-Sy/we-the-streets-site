@@ -55,6 +55,7 @@ const options = {
       delete sessionUser.hashedPassword;
       delete sessionUser.mobilityAids;
       delete sessionUser.commuteFrequency;
+      delete sessionUser.activities;
 
       session.user = sessionUser;
       return Promise.resolve(session);
