@@ -70,7 +70,7 @@ export default class DashboardInfo extends React.Component {
               <P>
                 <Tooltip>Current active annotation from this session</Tooltip>
                 <span className="font-bold">
-                  Active Annotion Sessions:{" "}
+                  Active Annotation Sessions:{" "}
                 </span>{" "}
                 {this.state.annotationActiveCount}
               </P>
