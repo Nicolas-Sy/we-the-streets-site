@@ -39,6 +39,7 @@ export default function register({ providers, csrfToken }) {
     const age = e.currentTarget.age.value;
     const commuteFrequency = e.currentTarget.commuteFrequency.value;
     const mobilityAids = [];
+    const referred = e.currentTarget.referred.value;
 
     for (let i = 0; i < e.currentTarget.mobilityAid.length; i++) {
       if (e.currentTarget.mobilityAid[i].checked) {
@@ -55,6 +56,7 @@ export default function register({ providers, csrfToken }) {
       age,
       commuteFrequency,
       mobilityAids,
+      referred,
     };
 
     if (password !== confirmPassword) {
@@ -198,7 +200,8 @@ export default function register({ providers, csrfToken }) {
           />
           <fieldset className="border-0 mb-4">
             <legend className="block mb-2 font-bold">
-              Do you use the following mobility aids? If not, do not check any of the boxes.
+              Do you use the following mobility aids? If not, do not check any
+              of the boxes.
             </legend>
             <label className="block text-gray-700 font-bold mb-2">
               <input
@@ -304,6 +307,20 @@ export default function register({ providers, csrfToken }) {
               <span className="text-sm">Always</span>
             </label>
           </fieldset>
+          <label className="font-bold" htmlFor="city">
+            Referred by
+          </label>
+          <input
+            className="mb-4 p-2 appearance-none block w-full bg-gray-200 placeholder-gray-400 rounded border focus:border-teal-500"
+            type="text"
+            placeholder="Referred by"
+            name="referred"
+          />
+          <div className="text-xs -mb-2 pb-4 text-gray-600">
+            *This is optional. If there is a person or a group who invited you
+            to use this platform, indicate his/her username or the name of the
+            entity.
+          </div>
 
           <div className="flex items-center">
             <div className="w-2/3 flex items-center">

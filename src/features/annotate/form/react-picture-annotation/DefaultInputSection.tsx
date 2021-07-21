@@ -50,6 +50,7 @@ const DefaultInputSection = ({
           <option value="tree">Tree</option>
           <option value="tricycle">Tricycle</option>
           <option value="utility_post">Utility Post</option>
+          <option value="others">Others</option>
         </select>
         <a
           className="rp-default-input-section_select yes"

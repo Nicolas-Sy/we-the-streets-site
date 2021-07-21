@@ -15,6 +15,7 @@ const handler = async (req, res) => {
       age,
       mobilityAids,
       commuteFrequency,
+      referred,
     } = req.body;
 
     const hashedPassword = await bcrypt.hash(password, 10);
@@ -50,6 +51,7 @@ const handler = async (req, res) => {
           commuteFrequency,
           activities,
           totalAnnotations,
+          referred,
         })
         .then(({ ops }) => ops[0]);
       res.status(201).send("Done");
