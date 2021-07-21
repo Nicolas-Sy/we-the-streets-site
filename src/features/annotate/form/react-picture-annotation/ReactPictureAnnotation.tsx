@@ -204,7 +204,7 @@ export default class ReactPictureAnnotation extends React.Component<IReactPictur
           <span className="font-bold">only on the sidewalk surface. </span>
           Please{" "}
           <span className="font-bold">
-            click on the white boxes and select yes{" "}
+            click on the white boxes and select &quot;Yes&quot;{" "}
           </span>
           if the object {" "}
           <span className="font-bold">
@@ -376,7 +376,11 @@ export default class ReactPictureAnnotation extends React.Component<IReactPictur
             In this step, please rate the sidewalk accessibility based on your
             understanding of sidewalk accessibility. A score of 1 means that {" "}
             <span className="font-bold">
-              there is no sidewalk, or the sidewalk on the image is completely
+              there is no sidewalk,
+            </span>
+            {" "}or {" "}
+            <span className="font-bold">
+              the sidewalk on the image is completely
               unsafe and inaccessible for both abled pedestrians and persons with
               physical disabilities (PWPDs).{" "}
             </span>
@@ -438,8 +442,8 @@ export default class ReactPictureAnnotation extends React.Component<IReactPictur
               <span>Step 3: Choose the Surface Type</span>
             </H2>
             <P className="my-4 mx-5">
-              Lastly, please choose the surface type that best describes the
-              sidewalk found in the image.
+              Lastly, please choose the surface type that <b>best describes the
+                sidewalk </b> found in the image.
             </P>
             <fieldset className="grouped_radio">
               <label className="radio-control" htmlFor="smooth_paving">

@@ -11,7 +11,7 @@ export default function HelpDirectory() {
           </div>
           <div className="mt-4 text-lg ml-0 lg:ml-16 xl:ml-32 2xl:ml-64">
             <P> 1. Open your dashboard.</P>
-            <P> 2. Click on &quot;Start Annotating&quot;. </P>
+            <P> 2. Click on <b>&quot;Start Annotating&quot;</b>. </P>
             <P>
               {" "}
               3. Select the number of annotations you are willing to do for the
@@ -28,23 +28,23 @@ export default function HelpDirectory() {
           <div className="mt-4 text-lg ml-0 lg:ml-16 xl:ml-32 2xl:ml-64">
             <P className="mb-2">
               {" "}
-              We classify &quot;<u>obstructions</u>&quot; as objects that{" "}
+              We classify <b>&quot;obstructions&quot;</b> as objects that{" "}
               <b>block the pathway</b> for a pedestrian to easily walk along the
               sidewalk.{" "}
             </P>
             <P>
               {" "}
-              1. Click on the white boxes that you think are blocking the
+              1. Click on the <b>white boxes</b> that you think are blocking the
               sidewalk.{" "}
             </P>
             <P>
               {" "}
               2. If the object blocks the pathway of the sidewalk, select
-              &quot;Yes&quot; as your option, otherwise select &quot;No&quot;.{" "}
+              {" "}<b>&quot;Yes&quot;</b> as your option, otherwise select <b>&quot;No&quot;</b>.{" "}
             </P>
             <P>
               {" "}
-              3. The object will appear on the &quot;Selected Obstructions&quot;
+              3. The object will appear on the <b>&quot;Selected Obstructions&quot;</b>{" "}
               list if you selected &quot;Yes&quot;.{" "}
             </P>
           </div>
@@ -59,31 +59,23 @@ export default function HelpDirectory() {
             <P className="mb-2">
               If you see an obstruction on the image that{" "}
               <b>does not have a bounding box around it yet</b>, it&apos;s time
-              to label it as an <u>obstruction</u>!
+              to label it as an <b>obstruction</b>!
             </P>
             <P>
               {" "}
-              1. Draw a box around the obstruction by clicking and dragging your
+              1. <b>Draw a box</b> around the obstruction by clicking and dragging your
               mouse from the top left to the bottom right.{" "}
             </P>
-            <P> 2. Select the type of object among the selection list. </P>
+            <P> 2. Select the type of object among the selection list. If the object is not found on the list, select <b>&quot;Others&quot;</b> as your option. </P>
             <P>
               {" "}
-              3. Click the &quot;check mark&quot; icon to confirm your action,
-              otherwise click the &quot;trash bin&quot; icon to delete your
+              3. Click the <b>&quot;check mark&quot;</b> icon to confirm your action,
+              otherwise click the <b>&quot;trash bin&quot;</b> icon to delete your
               action.{" "}
             </P>
             <P className="mb-2">
               {" "}
-              4. The new obstruction will appear on the &quot;New
-              Obstructions&quot; list.
-            </P>
-            <P>
-              {" "}
-              <b> Note: </b>We have limited objects among the options, as these
-              are the objects that can be commonly found along Philippine
-              sidewalks. If the object that you are about to label is not on the
-              list, please do not label it anymore.{" "}
+              4. The new obstruction will appear on the <b>&quot;New Obstructions&quot;</b> list.
             </P>
           </div>
         </div>
@@ -121,13 +113,11 @@ export default function HelpDirectory() {
           <div className="mt-4 text-lg ml-0 lg:ml-16 xl:ml-32 2xl:ml-64">
             <P>
               {" "}
-              1. Among the 3 choices, select the image that best describes the
-              surface type of the sidewalk.{" "}
+              1. Among the 3 choices, select the image that <b>best describes the surface type</b> of the sidewalk.{" "}
             </P>
             <P>
               {" "}
-              2. If the image has no sidewalk, select the option of &quot;No
-              Sidewalk&quot;.{" "}
+              2. If the image has no sidewalk, select the option of <b>&quot;No Sidewalk&quot;</b>.{" "}
             </P>
           </div>
         </div>
