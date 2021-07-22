@@ -24,8 +24,8 @@ export default function AboutSection() {
         head="Unwalkable Cities"
         img="theWhy.jpg"
         desc="Many Filipinos living in urban areas rely heavily on roads and
-                sidewalks to accomplish their daily routines. Given that only 31
-                percent% of the nation’s households owns at least one car, quality
+                sidewalks to accomplish their daily routines. Given that only 31% 
+                of the nation’s households owns at least one car, quality
                 public infrastructure must be made available and accessible to all
                 people. However, this is not always the case. Hundreds if not thousands of sidewalks
                 are either broken, narrow, unsafe, or uncomfortable to work with. With

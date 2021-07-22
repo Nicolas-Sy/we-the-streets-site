@@ -23,9 +23,11 @@ export default function aboutSlide({
           </span>
         </H2>
       </div>
-      <div className="px-5 md:px-0">
+      <div className="my-2 px-5 md:px-0">
         <H3 className={active ? 'transition-all delay-1000 ease-in duration-300 opacity-100' : 'opacity-0'}>{head}</H3>
-        <P className={active ? 'transition-all delay-1000 ease-in duration-300 opacity-100' : 'opacity-0'}>{desc}</P>
+        <div className="my-4">
+          <P className={active ? 'transition-all delay-1000 ease-in duration-300 opacity-100' : 'opacity-0'}>{desc}</P>
+        </div>
       </div>
     </div>
   );
