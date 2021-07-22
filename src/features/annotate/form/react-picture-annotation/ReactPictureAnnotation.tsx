@@ -216,9 +216,10 @@ export default class ReactPictureAnnotation extends React.Component<IReactPictur
           clicking and dragging your mouse from the top left to the bottom
           right.{" "}
           <span className="font-bold">
-            If there are no obstructions on the sidewalk, or if there are no sidewalks found on the image, feel free to move
-            forward to the next step.
+            If there are no obstructions on the sidewalk,
           </span>
+          {" "}or <b> if there are no sidewalks found on the image, </b> feel free to move
+          forward to the next step.
         </P>
         {/* Annotation Tool */}
         <div className="rp-container">
