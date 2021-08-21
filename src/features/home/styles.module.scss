@@ -37,7 +37,13 @@
     margin-bottom: 0.5rem;
   }
   p {
+    display: block;
     color: white;
+    span {
+      background: var(--c-accent);
+      color: black;
+      padding: 2px 5px;
+    }
   }
 }
 

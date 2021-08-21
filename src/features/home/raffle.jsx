@@ -69,7 +69,9 @@ export default function Raffle() {
             <P className={styles.infoPrize}>
               Eight annotators will have a change to win our raffle prize.
             </P>
-            <P>PHP 250</P>
+            <P>
+              <span>PHP 250</span>
+            </P>
           </div>
         </div>
       </div>

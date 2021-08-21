@@ -62,7 +62,7 @@ export default function Help() {
         </P>
       </div>
       <div ref={ref}>
-        <ul className="flex flex-row flex-wrap justify-around ml-8 lg:h-60">
+        <ul className="flex flex-row flex-wrap justify-around ml-8">
           <li
             className={`duration-500 ease-in ${styles.card} ${
               !isVisible ? "opacity-0 pl-10" : "pt-0 opacity-100"
